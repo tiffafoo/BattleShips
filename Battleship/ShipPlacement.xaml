@@ -1,0 +1,658 @@
+﻿<UserControl x:Class="Battleship.ShipPlacement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Battleship"
+             mc:Ignorable="d" Height="453.769" Width="422.111">
+    <Grid HorizontalAlignment="Right" Width="300" Height="300" VerticalAlignment="Top" Margin="0,20,60.4,0" ShowGridLines="True" Background="#FFEDDBDB">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Name="gridA1" Grid.Row="0" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA1" />
+        </Grid>
+        <Grid Name="gridA2" Grid.Row="0" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA2" />
+        </Grid>
+        <Grid Name="gridA3" Grid.Row="0" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA3" />
+        </Grid>
+        <Grid Name="gridA4" Grid.Row="0" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA4" />
+        </Grid>
+        <Grid Name="gridA5" Grid.Row="0" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA5" />
+        </Grid>
+        <Grid Name="gridA6" Grid.Row="0" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA6" />
+        </Grid>
+        <Grid Name="gridA7" Grid.Row="0" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA7" />
+        </Grid>
+        <Grid Name="gridA8" Grid.Row="0" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA8" />
+        </Grid>
+        <Grid Name="gridA9" Grid.Row="0" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA9" />
+        </Grid>
+        <Grid Name="gridA10" Grid.Row="0" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellA10" />
+        </Grid>
+        <Grid Name="gridB1" Grid.Row="1" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB1" />
+        </Grid>
+        <Grid Name="gridB2" Grid.Row="1" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB2" />
+        </Grid>
+        <Grid Name="gridB3" Grid.Row="1" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB3" />
+        </Grid>
+        <Grid Name="gridB4" Grid.Row="1" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB4" />
+        </Grid>
+        <Grid Name="gridB5" Grid.Row="1" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB5" />
+        </Grid>
+        <Grid Name="gridB6" Grid.Row="1" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB6" />
+        </Grid>
+        <Grid Name="gridB7" Grid.Row="1" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB7" />
+        </Grid>
+        <Grid Name="gridB8" Grid.Row="1" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB8" />
+        </Grid>
+        <Grid Name="gridB9" Grid.Row="1" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB9" />
+        </Grid>
+        <Grid Name="gridB10" Grid.Row="1" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellB10" />
+        </Grid>
+        <Grid Name="gridC1" Grid.Row="2" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC1" />
+        </Grid>
+        <Grid Name="gridC2" Grid.Row="2" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC2" />
+        </Grid>
+        <Grid Name="gridC3" Grid.Row="2" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC3" />
+        </Grid>
+        <Grid Name="gridC4" Grid.Row="2" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC4" />
+        </Grid>
+        <Grid Name="gridC5" Grid.Row="2" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC5" />
+        </Grid>
+        <Grid Name="gridC6" Grid.Row="2" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC6" />
+        </Grid>
+        <Grid Name="gridC7" Grid.Row="2" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC7" />
+        </Grid>
+        <Grid Name="gridC8" Grid.Row="2" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC8" />
+        </Grid>
+        <Grid Name="gridC9" Grid.Row="2" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC9" />
+        </Grid>
+        <Grid Name="gridC10" Grid.Row="2" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellC10" />
+        </Grid>
+        <Grid Name="gridD1" Grid.Row="3" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD1" />
+        </Grid>
+        <Grid Name="gridD2" Grid.Row="3" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD2" />
+        </Grid>
+        <Grid Name="gridD3" Grid.Row="3" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD3" />
+        </Grid>
+        <Grid Name="gridD4" Grid.Row="3" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD4" />
+        </Grid>
+        <Grid Name="gridD5" Grid.Row="3" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD5" />
+        </Grid>
+        <Grid Name="gridD6" Grid.Row="3" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD6" />
+        </Grid>
+        <Grid Name="gridD7" Grid.Row="3" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD7" />
+        </Grid>
+        <Grid Name="gridD8" Grid.Row="3" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD8" />
+        </Grid>
+        <Grid Name="gridD9" Grid.Row="3" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD9" />
+        </Grid>
+        <Grid Name="gridD10" Grid.Row="3" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellD10" />
+        </Grid>
+        <Grid Name="gridE1" Grid.Row="4" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE1" />
+        </Grid>
+        <Grid Name="gridE2" Grid.Row="4" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE2" />
+        </Grid>
+        <Grid Name="gridE3" Grid.Row="4" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE3" />
+        </Grid>
+        <Grid Name="gridE4" Grid.Row="4" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE4" />
+        </Grid>
+        <Grid Name="gridE5" Grid.Row="4" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE5" />
+        </Grid>
+        <Grid Name="gridE6" Grid.Row="4" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE6" />
+        </Grid>
+        <Grid Name="gridE7" Grid.Row="4" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE7" />
+        </Grid>
+        <Grid Name="gridE8" Grid.Row="4" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE8" />
+        </Grid>
+        <Grid Name="gridE9" Grid.Row="4" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE9" />
+        </Grid>
+        <Grid Name="gridE10" Grid.Row="4" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellE10" />
+        </Grid>
+        <Grid Name="gridF1" Grid.Row="5" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF1" />
+        </Grid>
+        <Grid Name="gridF2" Grid.Row="5" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF2" />
+        </Grid>
+        <Grid Name="gridF3" Grid.Row="5" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF3" />
+        </Grid>
+        <Grid Name="gridF4" Grid.Row="5" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF4" />
+        </Grid>
+        <Grid Name="gridF5" Grid.Row="5" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF5" />
+        </Grid>
+        <Grid Name="gridF6" Grid.Row="5" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF6" />
+        </Grid>
+        <Grid Name="gridF7" Grid.Row="5" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF7" />
+        </Grid>
+        <Grid Name="gridF8" Grid.Row="5" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF8" />
+        </Grid>
+        <Grid Name="gridF9" Grid.Row="5" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF9" />
+        </Grid>
+        <Grid Name="gridF10" Grid.Row="5" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellF10" />
+        </Grid>
+        <Grid Name="gridG1" Grid.Row="6" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG1" />
+        </Grid>
+        <Grid Name="gridG2" Grid.Row="6" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG2" />
+        </Grid>
+        <Grid Name="gridG3" Grid.Row="6" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG3" />
+        </Grid>
+        <Grid Name="gridG4" Grid.Row="6" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG4" />
+        </Grid>
+        <Grid Name="gridG5" Grid.Row="6" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG5" />
+        </Grid>
+        <Grid Name="gridG6" Grid.Row="6" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG6" />
+        </Grid>
+        <Grid Name="gridG7" Grid.Row="6" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG7" />
+        </Grid>
+        <Grid Name="gridG8" Grid.Row="6" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG8" />
+        </Grid>
+        <Grid Name="gridG9" Grid.Row="6" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG9" />
+        </Grid>
+        <Grid Name="gridG10" Grid.Row="6" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellG10" />
+        </Grid>
+        <Grid Name="gridH1" Grid.Row="7" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH1" />
+        </Grid>
+        <Grid Name="gridH2" Grid.Row="7" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH2" />
+        </Grid>
+        <Grid Name="gridH3" Grid.Row="7" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH3" />
+        </Grid>
+        <Grid Name="gridH4" Grid.Row="7" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH4" />
+        </Grid>
+        <Grid Name="gridH5" Grid.Row="7" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH5" />
+        </Grid>
+        <Grid Name="gridH6" Grid.Row="7" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH6" />
+        </Grid>
+        <Grid Name="gridH7" Grid.Row="7" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH7" />
+        </Grid>
+        <Grid Name="gridH8" Grid.Row="7" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH8" />
+        </Grid>
+        <Grid Name="gridH9" Grid.Row="7" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH9" />
+        </Grid>
+        <Grid Name="gridH10" Grid.Row="7" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellH10" />
+        </Grid>
+        <Grid Name="gridI1" Grid.Row="8" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI1" />
+        </Grid>
+        <Grid Name="gridI2" Grid.Row="8" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI2" />
+        </Grid>
+        <Grid Name="gridI3" Grid.Row="8" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI3" />
+        </Grid>
+        <Grid Name="gridI4" Grid.Row="8" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI4" />
+        </Grid>
+        <Grid Name="gridI5" Grid.Row="8" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI5" />
+        </Grid>
+        <Grid Name="gridI6" Grid.Row="8" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI6" />
+        </Grid>
+        <Grid Name="gridI7" Grid.Row="8" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI7" />
+        </Grid>
+        <Grid Name="gridI8" Grid.Row="8" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI8" />
+        </Grid>
+        <Grid Name="gridI9" Grid.Row="8" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI9" />
+        </Grid>
+        <Grid Name="gridI10" Grid.Row="8" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellI10" />
+        </Grid>
+        <Grid Name="gridJ1" Grid.Row="9" Grid.Column="0"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ1" />
+        </Grid>
+        <Grid Name="gridJ2" Grid.Row="9" Grid.Column="1"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ2" />
+        </Grid>
+        <Grid Name="gridJ3" Grid.Row="9" Grid.Column="2"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ3" />
+        </Grid>
+        <Grid Name="gridJ4" Grid.Row="9" Grid.Column="3"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ4" />
+        </Grid>
+        <Grid Name="gridJ5" Grid.Row="9" Grid.Column="4"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ5" />
+        </Grid>
+        <Grid Name="gridJ6" Grid.Row="9" Grid.Column="5"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ6" />
+        </Grid>
+        <Grid Name="gridJ7" Grid.Row="9" Grid.Column="6"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ7" />
+        </Grid>
+        <Grid Name="gridJ8" Grid.Row="9" Grid.Column="7"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ8" />
+        </Grid>
+        <Grid Name="gridJ9" Grid.Row="9" Grid.Column="8"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ9" />
+        </Grid>
+        <Grid Name="gridJ10" Grid.Row="9" Grid.Column="9"
+    
+    Background="#FFF0F0F0">
+            <Rectangle/>
+            <Path Name="cellJ10" />
+        </Grid>
+        <Label x:Name="lblHorizontal" Grid.ColumnSpan="10" Content="  A       B       C       D       E       F       G       H       I       J"
+               HorizontalAlignment="Left" Margin="-1,33.6,0,-32" Grid.Row="9" Width="300"/>
+        <Label x:Name="lblVertical1" Content="1" Grid.Column="9" Margin="31.4,2,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2"/>
+        <Label x:Name="lblVertical2" Content="2" Grid.Column="9" Margin="31.4,30,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2"/>
+        <Label x:Name="lblVertical3" Content="3" Grid.Column="9" Margin="31.4,1,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="2"/>
+        <Label x:Name="lblVertical4" Content="4" Grid.Column="9" Margin="31.4,0.6,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="3"/>
+        <Label x:Name="lblVertical5" Content="5" Grid.Column="9" Margin="31.4,1,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="4"/>
+        <Label x:Name="lblVertical6" Content="6" Grid.Column="9" Margin="31.4,0.6,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="5"/>
+        <Label x:Name="lblVertical7" Content="7" Grid.Column="9" Margin="31.4,1,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="6"/>
+        <Label x:Name="lblVertical8" Content="8" Grid.Column="9" Margin="31.4,0.6,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="7"/>
+        <Label x:Name="lblVertical9" Content="9" Grid.Column="9" Margin="31.4,1,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8"/>
+        <Label x:Name="lblVertical10" Content="10" Grid.Column="9" Margin="31.4,30,-30.8,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" Grid.RowSpan="2"/>
+        <Canvas Name="canvas" Grid.ColumnSpan="10" HorizontalAlignment="Left" Height="301" Margin="-1,-1,-0.8,0" VerticalAlignment="Top" Width="301" Grid.RowSpan="10">
+            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="1.6" Canvas.Top="1.6" Height="28.8" Stretch="Fill" Width="56.8"
+                  Name="ship" MouseLeftButtonDown="ship_MouseLeftButtonDown" MouseLeftButtonUp="ship_MouseLeftButtonUp" MouseMove="ship_MouseMove">
+                <Path.Data>
+                    <GeometryGroup>
+                        <EllipseGeometry Center="110 10" RadiusX="100" RadiusY="90" />
+                        <LineGeometry StartPoint="110 110" EndPoint="110 -90" />
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
+        </Canvas>
+    </Grid>
+
+</UserControl>
