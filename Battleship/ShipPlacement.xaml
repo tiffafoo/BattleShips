@@ -684,7 +684,7 @@
                     </GeometryGroup>
                 </Path.Data>
             </Path>
-            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="10.4" Canvas.Top="51.3" Height="27.2" Stretch="Fill" Width="116.8"
+            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="13.8" Canvas.Top="51.2" Height="27.2" Stretch="Fill" Width="116.8"
                 	x:Name="battleship" MouseLeftButtonDown="ship_MouseLeftButtonDown">
                 <Path.Data>
                     <GeometryGroup>
@@ -720,6 +720,8 @@
         <Label x:Name="lblVerticalH" Content="H" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="7"/>
         <Label x:Name="lblVerticalI" Content="I" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8"/>
         <Label x:Name="lblVerticalJ" Content="J" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" Grid.RowSpan="2"/>
+        <Button x:Name="btnSubmit" Grid.ColumnSpan="2" Content="Submit" Grid.Column="8" HorizontalAlignment="Left" Height="32" Margin="1.68,119.6,-28.28,-122" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnSubmit_Click"/>
+        <Button x:Name="btnReset" Grid.ColumnSpan="4" Content="Reset" Grid.Column="4" HorizontalAlignment="Left" Height="32" Margin="17.84,119.6,0,-122" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="reset"/>
     </Grid>
 
 </UserControl>

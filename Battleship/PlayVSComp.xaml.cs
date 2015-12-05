@@ -20,9 +20,18 @@ namespace Battleship
     /// </summary>
     public partial class PlayVSComp : UserControl
     {
+        private Difficulty difficulty;
+        private Grid[] grid;
+
         public PlayVSComp()
         {
             InitializeComponent();
+        }
+
+        public PlayVSComp(Difficulty difficulty, Grid[] grid)
+        {
+            this.difficulty = difficulty;
+            this.grid = grid;
         }
     }
 }

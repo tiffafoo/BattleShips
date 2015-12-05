@@ -1816,6 +1816,22 @@ namespace Battleship {
         #line default
         #line hidden
         
+        
+        #line 723 "..\..\ShipPlacement.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnSubmit;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 724 "..\..\ShipPlacement.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnReset;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -3965,6 +3981,24 @@ namespace Battleship {
             return;
             case 322:
             this.lblVerticalJ = ((System.Windows.Controls.Label)(target));
+            return;
+            case 323:
+            this.btnSubmit = ((System.Windows.Controls.Button)(target));
+            
+            #line 723 "..\..\ShipPlacement.xaml"
+            this.btnSubmit.Click += new System.Windows.RoutedEventHandler(this.btnSubmit_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 324:
+            this.btnReset = ((System.Windows.Controls.Button)(target));
+            
+            #line 724 "..\..\ShipPlacement.xaml"
+            this.btnReset.Click += new System.Windows.RoutedEventHandler(this.reset);
+            
+            #line default
+            #line hidden
             return;
             }
             this._contentLoaded = true;

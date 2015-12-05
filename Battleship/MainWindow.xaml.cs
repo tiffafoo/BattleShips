@@ -16,6 +16,14 @@ using System.Windows.Shapes;
 namespace Battleship
 {
     /// <summary>
+    /// Difficulty settings
+    /// </summary>
+    enum Difficulty
+    {
+        Simple,
+        Intelligent
+    }
+    /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
@@ -26,16 +34,14 @@ namespace Battleship
         ShipPlacement shipPlacement;
         PlayVSComp playVSComp;
 
-        enum Difficulty { Simple, Intelligent };
-        Difficulty difficulty;
-
-        String name;
+        Difficulty difficulty = Difficulty.Simple;
 
         public MainWindow()
         {
             InitializeComponent();
             InitializeGame();
         }
+      
         private void InitializeGame()
         {
             //Initialize window
@@ -58,6 +64,12 @@ namespace Battleship
             //Add event handler
             setup.play += new EventHandler(shipSetup);
         }
+
+        /// <summary>
+        /// Phase 2: shipPlacement 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void shipSetup(object sender, EventArgs e)
         {
             //Close setup
@@ -75,13 +87,28 @@ namespace Battleship
             shipPlacement.HorizontalAlignment = HorizontalAlignment.Left;
             shipPlacement.VerticalAlignment = VerticalAlignment.Top;
 
-            //shipPlacement.play += new EventHandler(playGame);
+            shipPlacement.play += new EventHandler(playGame);
         }
 
-        private void buttonStart_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Phase 3: PlayVSComp 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void playGame(object sender, EventArgs e)
         {
-            
+            //Close shipPlacement
+            shipPlacement.Visibility = Visibility.Collapsed;
 
+            //Resize window
+            this.MinWidth = 800;
+            this.MinHeight = 470;
+
+            //Initialize game
+            playVSComp = new PlayVSComp(difficulty, shipPlacement.grid);
+
+            //Add game
+            grid.Children.Add(playVSComp);
         }
     }
 }

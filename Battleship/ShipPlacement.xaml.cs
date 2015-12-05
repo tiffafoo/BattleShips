@@ -28,6 +28,7 @@ namespace Battleship
         SolidColorBrush selected = new SolidColorBrush(Colors.Green);
         String ship = "";
         int size;
+        int numShipsPlaced;
         Path lastShip;
         Polygon lastArrow;
         public Grid[] grid;
@@ -46,10 +47,6 @@ namespace Battleship
                                 gridI1, gridI2, gridI3, gridI4, gridI5, gridI6, gridI7,gridI8,gridI9,gridI10,
                                 gridJ1, gridJ2, gridJ3, gridJ4, gridJ5, gridJ6, gridJ7,gridJ8,gridJ9,gridJ10 };
             reset();
-            foreach (var element in grid)
-            {
-                Console.WriteLine(element.Name);
-            }
         }
 
         /// <summary>
@@ -221,6 +218,16 @@ namespace Battleship
             lastShip.Opacity = 0.5;
             lastShip.Stroke = unselected;
             lastShip = null;
+            numShipsPlaced++;
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            if (numShipsPlaced != 5)
+            {
+                return;
+            }
+            play(this,e);
         }
     }
 }
