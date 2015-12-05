@@ -18,7 +18,7 @@ namespace Battleship
     /// <summary>
     /// Difficulty settings
     /// </summary>
-    enum Difficulty
+    public enum Difficulty
     {
         Simple,
         Intelligent

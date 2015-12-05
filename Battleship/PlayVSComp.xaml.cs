@@ -20,7 +20,7 @@ namespace Battleship
     /// </summary>
     public partial class PlayVSComp : UserControl
     {
-        private Difficulty difficulty;
+        public Difficulty difficulty;
         private Grid[] grid;
 
         public PlayVSComp()

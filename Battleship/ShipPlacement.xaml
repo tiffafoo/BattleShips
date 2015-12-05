@@ -721,7 +721,7 @@
         <Label x:Name="lblVerticalI" Content="I" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8"/>
         <Label x:Name="lblVerticalJ" Content="J" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" Grid.RowSpan="2"/>
         <Button x:Name="btnSubmit" Grid.ColumnSpan="2" Content="Submit" Grid.Column="8" HorizontalAlignment="Left" Height="32" Margin="1.68,119.6,-28.28,-122" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnSubmit_Click"/>
-        <Button x:Name="btnReset" Grid.ColumnSpan="4" Content="Reset" Grid.Column="4" HorizontalAlignment="Left" Height="32" Margin="17.84,119.6,0,-122" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="reset"/>
+        <Button x:Name="btnReset" Grid.ColumnSpan="4" Content="Reset" Grid.Column="4" HorizontalAlignment="Left" Height="32" Margin="17.84,119.6,0,-122" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnReset_Click" RenderTransformOrigin="0.526,0.1"/>
     </Grid>
 
 </UserControl>

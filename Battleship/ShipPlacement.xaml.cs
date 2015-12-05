@@ -229,5 +229,10 @@ namespace Battleship
             }
             play(this,e);
         }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            reset();
+        }
     }
 }
