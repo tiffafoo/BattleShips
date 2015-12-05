@@ -46,7 +46,7 @@ namespace Battleship
             grid.Children.Add(setup);
             
             //Get difficulty
-            if (rbtnIntelligent.IsChecked.Value)
+            if (setup.rbtnIntelligent.IsChecked.Value)
             {
                 difficulty = Difficulty.Intelligent;
             }
