@@ -30,6 +30,7 @@ namespace Battleship
         int size;
         int numShipsPlaced;
         Path lastShip;
+        Path[] ships;
         Polygon lastArrow;
         public Grid[] grid;
  
@@ -46,6 +47,7 @@ namespace Battleship
                                 gridH1, gridH2, gridH3, gridH4, gridH5, gridH6, gridH7,gridH8,gridH9,gridH10,
                                 gridI1, gridI2, gridI3, gridI4, gridI5, gridI6, gridI7,gridI8,gridI9,gridI10,
                                 gridJ1, gridJ2, gridJ3, gridJ4, gridJ5, gridJ6, gridJ7,gridJ8,gridJ9,gridJ10 };
+            ships = new Path[] { destroyer, cruiser,submarine,battleship,carrier };
             reset();
         }
 
@@ -61,12 +63,30 @@ namespace Battleship
         /// </summary>
         private void reset()
         {
+            if (lastArrow != null)
+            {
+                lastArrow.Stroke = unselected;
+            }
             lastArrow = rightPoly;
             rightPoly.Stroke = selected;
+
             foreach (var element in grid)
             {
                 element.Tag = "water";
+                element.Background = new SolidColorBrush(Colors.White);
             }
+
+            foreach (var element in ships)
+            {
+                element.IsEnabled = true;
+                element.Opacity = 100;
+                if (element.Stroke != unselected)
+                {
+                    element.Stroke = unselected;
+                }
+            }
+            numShipsPlaced = 0;
+            lastShip = null;
         }
 
         /// <summary>
