@@ -22,7 +22,7 @@ namespace Battleship
     {
         public event EventHandler play;
         
-        enum Orientation { Up, Right};
+        enum Orientation { Down, Right};
         Orientation orientation = Orientation.Right;
         SolidColorBrush unselected = new SolidColorBrush(Colors.Black);
         SolidColorBrush selected = new SolidColorBrush(Colors.Green);
@@ -46,10 +46,14 @@ namespace Battleship
                                 gridI1, gridI2, gridI3, gridI4, gridI5, gridI6, gridI7,gridI8,gridI9,gridI10,
                                 gridJ1, gridJ2, gridJ3, gridJ4, gridJ5, gridJ6, gridJ7,gridJ8,gridJ9,gridJ10 };
             reset();
+            foreach (var element in grid)
+            {
+                Console.WriteLine(element.Name);
+            }
         }
 
         /// <summary>
-        /// Reset the setup grid.
+        /// Reset the setDown grid.
         /// Tags: 
         ///     0. water
         ///     1. destroyer
@@ -77,7 +81,7 @@ namespace Battleship
         private void ship_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Path shipPath = (Path)sender;
-            if (shipPath.Opacity == 0.5)
+            if (!shipPath.IsEnabled)
             {
                 return;
             }
@@ -108,7 +112,7 @@ namespace Battleship
             }
         }
         /// <summary>
-        /// When the orientation arrow (left,right,up,down) is selected
+        /// When the orientation arrow (left,right,Down,down) is selected
         /// make it show and change the orientation enum.
         /// </summary>
         /// <param name="sender"></param>
@@ -127,7 +131,7 @@ namespace Battleship
             }
             else
             {
-                orientation = Orientation.Up;
+                orientation = Orientation.Down;
             }
         }
 
@@ -143,14 +147,14 @@ namespace Battleship
             int index = -1;
 
             //Check if ship has been selected
-            if (ship.Equals(""))
+            if (lastShip == null)
             {
                 MessageBox.Show("You must choose a ship", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             //Check if square has a ship already in place
-            if (!square.Tag.ToString().Equals("water"))
+            if (!square.Tag.Equals("water"))
             {
                 return;
             }
@@ -161,11 +165,62 @@ namespace Battleship
             //Check if there is enough space for the ship
             if (orientation.Equals(Orientation.Right))
             {
-                for (int i = 0; i < size; i++)
+                try {
+                    for (int i = 0; i < size; i++)
+                    {
+                        if (!grid[index + i].Tag.Equals("water"))
+                        {
+                            throw new IndexOutOfRangeException("Invalid ship placement, not enough space!");
+                        }
+                    }
+                    if ((index + size - 1) % 10 < size - 1)
+                    {
+                        throw new IndexOutOfRangeException("Invalid ship placement, not enough space!");
+                    }
+                } catch (IndexOutOfRangeException iore)
                 {
-                   
+                    MessageBox.Show(iore.Message,"Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+            }
+            else //for orientation down
+            {
+                for (int i = 0; i < size * 10; i +=10)
+                {
+                    if (index + i > 99 || !grid[index+i].Tag.Equals("water"))
+                    {
+                        MessageBox.Show("Invalid ship placement","Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                if ((index/10) + (size * 10) > 100)
+                {
+                    MessageBox.Show("Invalid ship placement, not enough space!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
             }
+            MessageBox.Show(size.ToString());
+            if (orientation.Equals(Orientation.Right))
+            {
+                for (int i = 0; i< size; i++)
+                {
+                    grid[index + i].Background = selected;
+                    grid[index + i].Tag = ship;
+                }
+            }
+            else
+            {
+                for(int i = 0; i < size * 10; i += 10)
+                {
+                    grid[index + i].Background = selected;
+                    grid[index + i].Tag = ship;
+                }
+            }
+            lastShip.IsEnabled = false;
+            lastShip.Opacity = 0.5;
+            lastShip.Stroke = unselected;
+            lastShip = null;
         }
     }
 }
