@@ -22,8 +22,8 @@ namespace Battleship
     {
         public event EventHandler play;
         
-        enum Orientation { Down, Right};
-        Orientation orientation = Orientation.Right;
+        enum Orientation { VERTICAL, HORIZONTAL};
+        Orientation orientation = Orientation.HORIZONTAL;
         SolidColorBrush unselected = new SolidColorBrush(Colors.Black);
         SolidColorBrush selected = new SolidColorBrush(Colors.Green);
         String ship = "";
@@ -32,12 +32,13 @@ namespace Battleship
         Path lastShip;
         Path[] ships;
         Polygon lastArrow;
-        public Grid[] grid;
+        public Grid[] playerGrid;
+        public int[] shipIndexArray = new int [17];
  
         public ShipPlacement()
         {
             InitializeComponent();
-            grid = new Grid[] { gridA1, gridA2, gridA3, gridA4, gridA5, gridA6, gridA7,gridA8,gridA9,gridA10,
+            playerGrid = new Grid[] { gridA1, gridA2, gridA3, gridA4, gridA5, gridA6, gridA7,gridA8,gridA9,gridA10,
                                 gridB1, gridB2, gridB3, gridB4, gridB5, gridB6, gridB7,gridB8,gridB9,gridB10,
                                 gridC1, gridC2, gridC3, gridC4, gridC5, gridC6, gridC7,gridC8,gridC9,gridC10,
                                 gridD1, gridD2, gridD3, gridD4, gridD5, gridD6, gridD7,gridD8,gridD9,gridD10,
@@ -70,7 +71,7 @@ namespace Battleship
             lastArrow = rightPoly;
             rightPoly.Stroke = selected;
 
-            foreach (var element in grid)
+            foreach (var element in playerGrid)
             {
                 element.Tag = "water";
                 element.Background = new SolidColorBrush(Colors.White);
@@ -144,11 +145,11 @@ namespace Battleship
 
             if (arrow.Name.Equals("rightPoly") || arrow.Name.Equals("leftPoly"))
             {
-                orientation = Orientation.Right;
+                orientation = Orientation.HORIZONTAL;
             }
             else
             {
-                orientation = Orientation.Down;
+                orientation = Orientation.VERTICAL;
             }
         }
 
@@ -162,6 +163,8 @@ namespace Battleship
         {
             Grid square = (Grid)sender;
             int index = -1;
+            int temp;
+            int counter = 1;
 
             //Check if ship has been selected
             if (lastShip == null)
@@ -177,22 +180,34 @@ namespace Battleship
             }
 
             //Find chosen square. Index should never be -1.
-            index = Array.IndexOf(grid,square);
-            
+            index = Array.IndexOf(playerGrid, square);
+
             //Check if there is enough space for the ship
-            if (orientation.Equals(Orientation.Right))
+
+            if (orientation.Equals(Orientation.HORIZONTAL))
             {
                 try {
+                    counter = 1;
                     for (int i = 0; i < size; i++)
                     {
-                        if (!grid[index + i].Tag.Equals("water"))
+                        //This sees if the index is within the grid going ---->
+                        if (index + i <= 99)
                         {
-                            throw new IndexOutOfRangeException("Invalid ship placement, not enough space!");
+                            if (!playerGrid[index + i].Tag.Equals("water"))
+                            {
+                                throw new IndexOutOfRangeException("Invalid ship placement, not enough space!");
+                            }
                         }
-                    }
-                    if ((index + size - 1) % 10 < size - 1)
-                    {
-                        throw new IndexOutOfRangeException("Invalid ship placement, not enough space!");
+                        //Goes <---- to see if there is space
+                        else
+                        {
+                            if (!playerGrid[index-counter].Tag.Equals("water"))
+                            {
+                                throw new IndexOutOfRangeException("Invalid ship placement"); 
+                            }
+                            counter++;
+                        }
+
                     }
                 } catch (IndexOutOfRangeException iore)
                 {
@@ -203,35 +218,98 @@ namespace Battleship
             }
             else //for orientation down
             {
-                for (int i = 0; i < size * 10; i +=10)
-                {
-                    if (index + i > 99 || !grid[index+i].Tag.Equals("water"))
+                try {
+                    counter = 10;
+                    for (int i = 0; i < size * 10; i += 10)
                     {
-                        MessageBox.Show("Invalid ship placement","Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
+                        if (index + i <= 99)
+                        {
+                            if (!playerGrid[index + i].Tag.Equals("water"))
+                            {
+                                throw new IndexOutOfRangeException("Invalid ship placement!");
+                            }
+                        }
+                        else
+                        {
+                            if (!playerGrid[index - counter].Tag.Equals("water"))
+                            {
+                                throw new IndexOutOfRangeException("Invalid ship placement! Wrong counter.");
+                            }
+                            counter += 10;
+                        }
                     }
-                }
-                if ((index/10) + (size * 10) > 100)
+                    if ((index / 10) + (size * 10) > 100)
+                    {
+                        throw new IndexOutOfRangeException("Invalid ship placement, not enough space!");
+                    }
+                } catch (IndexOutOfRangeException iore)
                 {
-                    MessageBox.Show("Invalid ship placement, not enough space!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(iore.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }
-            MessageBox.Show(size.ToString());
-            if (orientation.Equals(Orientation.Right))
+            
+            //Set the ship to grid
+            if (orientation.Equals(Orientation.HORIZONTAL))
             {
-                for (int i = 0; i< size; i++)
+                //If two rows
+                if ((index + size - 1) % 10 < size - 1)
                 {
-                    grid[index + i].Background = selected;
-                    grid[index + i].Tag = ship;
+                    counter = 0;
+                    temp = 1;
+
+                    while ((index + counter) % 10 > 1)
+                    {
+                        playerGrid[index + counter].Background = selected;
+                        playerGrid[index + counter].Tag = ship;
+                        counter++;
+                    }
+                    for (int i = counter; i < size; i++)
+                    {
+                        playerGrid[index - temp].Background = selected;
+                        playerGrid[index - temp].Tag = ship;
+                        temp++;
+                    }
+                }
+                //If one row
+                else
+                {
+                    for (int i = 0; i < size; i++)
+                    {
+                        playerGrid[index + i].Background = selected;
+                        playerGrid[index + i].Tag = ship;
+                    }
                 }
             }
             else
             {
-                for(int i = 0; i < size * 10; i += 10)
+                //If two columns
+                if (index + (size * 10) > 100)
                 {
-                    grid[index + i].Background = selected;
-                    grid[index + i].Tag = ship;
+                    counter = 0;
+                    temp = 10;
+                    while ((index / 10 + counter ) % 100 < 10)
+                    {
+                        playerGrid[index + counter * 10].Background = selected;
+                        playerGrid[index + counter * 10].Tag = ship;
+                        counter++;
+                    }
+                    for (int i = counter; i < size; i++)
+                    {
+                        playerGrid[index - temp].Background = selected;
+                        playerGrid[index - temp].Tag = ship;
+                        temp += 10;
+                    }
+                }
+                //If one column
+                else
+                {
+                    counter = 0;
+                    for (int i = 0; i  < size * 10; i += 10)
+                    {
+                        playerGrid[index + i].Background = selected;
+                        playerGrid[index + i].Tag = ship;
+                    }
                 }
             }
             lastShip.IsEnabled = false;
@@ -243,9 +321,18 @@ namespace Battleship
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            int counter = 0;
             if (numShipsPlaced != 5)
             {
                 return;
+            }
+            for (int i = 0; i < playerGrid.Length; i++)
+            {
+                if (!playerGrid[i].Tag.Equals("water"))
+                {
+                    shipIndexArray[counter] = i;
+                    counter++;
+                }
             }
             play(this,e);
         }

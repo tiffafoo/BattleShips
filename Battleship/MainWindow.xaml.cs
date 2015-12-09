@@ -15,14 +15,7 @@ using System.Windows.Shapes;
 
 namespace Battleship
 {
-    /// <summary>
-    /// Difficulty settings
-    /// </summary>
-    public enum Difficulty
-    {
-        Simple,
-        Intelligent
-    }
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -30,11 +23,10 @@ namespace Battleship
     {
         Grid grid = new Grid();
 
-        Setup setup;
-        ShipPlacement shipPlacement;
-        PlayVSComp playVSComp;
+        private Setup setup;
+        private ShipPlacement shipPlacement;
+        private PlayVSComp playVSComp;
 
-        Difficulty difficulty = Difficulty.Simple;
 
         public MainWindow()
         {
@@ -51,15 +43,7 @@ namespace Battleship
             setup = new Setup();
             grid.Children.Add(setup);
             
-            //Get difficulty
-            if (setup.rbtnIntelligent.IsChecked.Value)
-            {
-                difficulty = Difficulty.Intelligent;
-            }
-            else
-            {
-                difficulty = Difficulty.Simple;
-            }
+            
 
             //Add event handler
             setup.play += new EventHandler(shipSetup);
@@ -73,19 +57,17 @@ namespace Battleship
         private void shipSetup(object sender, EventArgs e)
         {
             //Close setup
-            setup.Visibility = Visibility.Collapsed;
+            grid.Children.Clear();
 
             //Resize window
             this.MinWidth = 460;
-            this.MinHeight = 470;
+            this.MinHeight = 520;
 
             //Initialize ship placement phase
             shipPlacement = new ShipPlacement();
 
             //Add ship placement grid
             grid.Children.Add(shipPlacement);
-            shipPlacement.HorizontalAlignment = HorizontalAlignment.Left;
-            shipPlacement.VerticalAlignment = VerticalAlignment.Top;
 
             shipPlacement.play += new EventHandler(playGame);
         }
@@ -98,17 +80,18 @@ namespace Battleship
         private void playGame(object sender, EventArgs e)
         {
             //Close shipPlacement
-            shipPlacement.Visibility = Visibility.Collapsed;
+            grid.Children.Clear();
 
             //Resize window
             this.MinWidth = 800;
             this.MinHeight = 470;
 
             //Initialize game
-            playVSComp = new PlayVSComp(difficulty, shipPlacement.grid);
+            playVSComp = new PlayVSComp(setup.difficulty, shipPlacement.playerGrid,shipPlacement.shipIndexArray);
 
-            //Add game
+            //Add grid
             grid.Children.Add(playVSComp);
+
         }
     }
 }

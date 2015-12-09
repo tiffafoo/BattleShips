@@ -4,14 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Battleship"
-             mc:Ignorable="d" Height="245.556" Width="323.333">
-    <Grid>
-        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Center" Height="42" Margin="106,190,100,0" Click="buttonStart_Click" Width="94" VerticalAlignment="Top" IsDefault="True"/>
-        <Label x:Name="lblDifficulty" Content="Choose Difficulty" HorizontalAlignment="Center" Margin="55,104,55,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbtnSimple" Content="Simple" GroupName="difficulty" Margin="119,131,107,0" VerticalAlignment="Top" IsChecked="True" HorizontalAlignment="Center" Width="74"/>
-        <RadioButton x:Name="rbtnIntelligent" Content="Intelligent" GroupName="difficulty" Margin="120,152,104,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="76"/>
-        <Label x:Name="lblWelcome" Content="Ahoy Captain! Ready to play?" HorizontalAlignment="Center" Margin="40,20,40,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblName" Content="Enter name" HorizontalAlignment="Center" Margin="0,46,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtboxName" HorizontalAlignment="Center" Height="23" Margin="100,76,100,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+             mc:Ignorable="d" Height="245.556" Width="303.333">
+    <Grid HorizontalAlignment="Left" Margin="0,0,0,-0.4" Width="323">
+        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Center" Height="42" Margin="106,171,123,0" Click="buttonStart_Click" Width="94" VerticalAlignment="Top" IsDefault="True" FontFamily="Stencil" FontSize="14.667" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White"/>
+        <Label x:Name="lblDifficulty" Content="Choose Difficulty" HorizontalAlignment="Center" Margin="79,97,93,0" VerticalAlignment="Top" FontFamily="Stencil" FontSize="14.667" Foreground="#FF5284C0"/>
+        <RadioButton x:Name="rbtnSimple" Content="Simple" GroupName="difficulty" Margin="119,124,130,0" VerticalAlignment="Top" IsChecked="True" HorizontalAlignment="Center" Width="74" Click="rbtnSimple_Click" FontFamily="Stencil" FontSize="13.667" />
+        <RadioButton x:Name="rbtnIntelligent" Content="Intelligent" GroupName="difficulty" Margin="103,145,113,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="107" Click="rbtnIntelligent_Click" FontFamily="Stencil" FontSize="13.667"/>
+        <Label x:Name="lblWelcome" Content="Welcome to BattleShips" HorizontalAlignment="Center" Margin="50,13,39,0" VerticalAlignment="Top" FontFamily="Stencil" FontSize="16.667" Width="234" Foreground="#FF5284C0"/>
+        <Label x:Name="lblName" Content="What is your name:" HorizontalAlignment="Center" Margin="75,39,85,0" VerticalAlignment="Top" FontFamily="Stencil" FontSize="14.667" Width="163"/>
+        <TextBox x:Name="txtboxName" HorizontalAlignment="Center" Height="23" Margin="91,69,110,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontFamily="Stencil" FontSize="14.667" Foreground="RosyBrown" Background="AntiqueWhite"/>
     </Grid>
 </UserControl>

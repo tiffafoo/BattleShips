@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Battleship"
-             mc:Ignorable="d" Height="453.769" Width="422.111">
-    <Grid HorizontalAlignment="Right" Width="300" Height="300" VerticalAlignment="Top" Margin="0,20,60.4,0" ShowGridLines="True" 
+             mc:Ignorable="d" Height="507.369" Width="422.111">
+    <Grid HorizontalAlignment="Right" Width="300" Height="300" VerticalAlignment="Top" Margin="0,60,60.4,0" ShowGridLines="True" 
           Background="#FFEDDBDB" Name="shipyardGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -633,8 +633,8 @@
             <Path Name="cellJ10" />
         </Grid>
         <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="81" Margin="-22,34.6,-43.8,-86" VerticalAlignment="Top" Width="365" Grid.ColumnSpan="10" Grid.Row="9">
-            <Polygon Points="0,-5 15,5, 0,15" Stroke="Black" Fill="White" Name ="rightPoly" Canvas.Left="342" Canvas.Top="41" MouseDown="orientationMouseDown"/>
-            <Polygon Points="0,-5 15,5, 0,15" Stroke="Black" Fill="White" Name ="leftPoly" Canvas.Left="293" Canvas.Top="36" RenderTransformOrigin="0.5,0.5" MouseDown="orientationMouseDown">
+            <Polygon Points="0,-5 15,5, 0,15" Stroke="Black" Fill="White" Name ="rightPoly" Canvas.Left="342" Canvas.Top="42" MouseDown="orientationMouseDown"/>
+            <Polygon Points="0,-5 15,5, 0,15" Stroke="Black" Fill="White" Name ="leftPoly" Canvas.Left="293" Canvas.Top="37" RenderTransformOrigin="0.5,0.5" MouseDown="orientationMouseDown">
                 <Polygon.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -644,8 +644,8 @@
                     </TransformGroup>
                 </Polygon.RenderTransform>
             </Polygon>
-            <Polygon Points="0,15 25,15, 14,0" Stroke="Black" Fill="White" Name ="upPoly" Canvas.Left="313" Canvas.Top="20" MouseDown="orientationMouseDown"/>
-            <Polygon Points="0,15 25,15, 14,0" Stroke="Black" Fill="White" Name ="downPoly" Canvas.Left="313" Canvas.Top="59" RenderTransformOrigin="0.5,0.5" MouseDown="orientationMouseDown">
+            <Polygon Points="0,15 25,15, 14,0" Stroke="Black" Fill="White" Name ="upPoly" Canvas.Left="313" Canvas.Top="21" MouseDown="orientationMouseDown"/>
+            <Polygon Points="0,15 25,15, 14,0" Stroke="Black" Fill="White" Name ="downPoly" Canvas.Left="313" Canvas.Top="60" RenderTransformOrigin="0.5,0.5" MouseDown="orientationMouseDown">
                 <Polygon.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -655,7 +655,7 @@
                     </TransformGroup>
                 </Polygon.RenderTransform>
             </Polygon>
-            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="38.4" Canvas.Top="18.5" Height="28.8" Stretch="Fill" Width="56.8"
+            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="38.4" Canvas.Top="19.4" Height="28.8" Stretch="Fill" Width="56.8"
             		x:Name="destroyer" MouseLeftButtonDown="ship_MouseLeftButtonDown">
                 <Path.Data>
                     <GeometryGroup>
@@ -664,7 +664,7 @@
                     </GeometryGroup>
                 </Path.Data>
             </Path>
-            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="107.2" Canvas.Top="19.3" Height="27.2" Stretch="Fill" Width="74.4"
+            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="107.2" Canvas.Top="20.2" Height="27.2" Stretch="Fill" Width="74.4"
                 	x:Name="cruiser" MouseLeftButtonDown="ship_MouseLeftButtonDown">
                 <Path.Data>
                     <GeometryGroup>
@@ -674,7 +674,7 @@
                     </GeometryGroup>
                 </Path.Data>
             </Path>
-            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="192.8" Canvas.Top="19.3" Height="27.2" Stretch="Fill" Width="74.4"
+            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="192.8" Canvas.Top="20.2" Height="27.2" Stretch="Fill" Width="74.4"
                 	x:Name="submarine" MouseLeftButtonDown="ship_MouseLeftButtonDown">
                 <Path.Data>
                     <GeometryGroup>
@@ -684,7 +684,7 @@
                     </GeometryGroup>
                 </Path.Data>
             </Path>
-            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="13.8" Canvas.Top="51.2" Height="27.2" Stretch="Fill" Width="116.8"
+            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="13.6" Canvas.Top="52.2" Height="27.2" Stretch="Fill" Width="116.8"
                 	x:Name="battleship" MouseLeftButtonDown="ship_MouseLeftButtonDown">
                 <Path.Data>
                     <GeometryGroup>
@@ -695,7 +695,7 @@
                     </GeometryGroup>
                 </Path.Data>
             </Path>
-            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="137.6" Canvas.Top="51.3" Height="27.2" Stretch="Fill" Width="148"
+            <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="137.6" Canvas.Top="52.2" Height="27.2" Stretch="Fill" Width="148"
                 	x:Name="carrier" MouseLeftButtonDown="ship_MouseLeftButtonDown" >
                 <Path.Data>
                     <GeometryGroup>
@@ -709,19 +709,20 @@
             </Path>
         </Canvas>
         <Label x:Name="lblHorizontal" Grid.ColumnSpan="10" Content="  1       2       3       4       5       6       7       8       9       10"
-               HorizontalAlignment="Left" Margin="-1,30.6,0,-29" Grid.Row="9" Width="300"/>
-        <Label x:Name="lblVerticalA" Content="A" Margin="-33,2,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2"/>
-        <Label x:Name="lblVerticalB" Content="B" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2"/>
-        <Label x:Name="lblVerticalC" Content="C" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="2"/>
-        <Label x:Name="lblVerticalD" Content="D" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="3"/>
-        <Label x:Name="lblVerticalE" Content="E" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="4"/>
-        <Label x:Name="lblVerticalF" Content="F" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="5"/>
-        <Label x:Name="lblVerticalG" Content="G" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="6"/>
-        <Label x:Name="lblVerticalH" Content="H" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="7"/>
-        <Label x:Name="lblVerticalI" Content="I" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8"/>
-        <Label x:Name="lblVerticalJ" Content="J" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" Grid.RowSpan="2"/>
-        <Button x:Name="btnSubmit" Grid.ColumnSpan="2" Content="Submit" Grid.Column="8" HorizontalAlignment="Left" Height="32" Margin="1.68,119.6,-28.28,-122" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnSubmit_Click"/>
-        <Button x:Name="btnReset" Grid.ColumnSpan="4" Content="Reset" Grid.Column="4" HorizontalAlignment="Left" Height="32" Margin="18.84,119.6,0,-122" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnReset_Click" RenderTransformOrigin="0.526,0.1"/>
+               HorizontalAlignment="Left" Margin="-2,31.6,0,-30" Grid.Row="9" Width="300" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalA" Content="A" Margin="-33,2,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalB" Content="B" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalC" Content="C" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="2" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalD" Content="D" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="3" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalE" Content="E" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="4" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalF" Content="F" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="5" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalG" Content="G" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="6" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalH" Content="H" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="7" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalI" Content="I" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalJ" Content="J" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+        <Button x:Name="btnSubmit" Grid.ColumnSpan="2" Content="Submit" Grid.Column="8" HorizontalAlignment="Left" Height="32" Margin="1.68,120.6,-28.28,-123" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnSubmit_Click" Background="#FF5284C0" BorderBrush="#FFC1C0E8" FontWeight="Bold" Foreground="White" FontFamily="Stencil" FontSize="14.667"/>
+        <Button x:Name="btnReset" Grid.ColumnSpan="4" Content="Reset" Grid.Column="4" HorizontalAlignment="Left" Height="32" Margin="16.84,120.6,0,-123" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnReset_Click" RenderTransformOrigin="0.526,0.1" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblShipPlacement" Grid.ColumnSpan="7" Content="Ship Placement" HorizontalAlignment="Left" Height="38" Margin="-44,-51,0,0" VerticalAlignment="Top" Width="230" FontSize="25.333" FontFamily="Stencil" FontWeight="Bold"/>
     </Grid>
 
 </UserControl>

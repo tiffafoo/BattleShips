@@ -15,11 +15,14 @@ using System.Windows.Shapes;
 
 namespace Battleship
 {
-    
+
+    public enum Difficulty { Simple, Intelligent }
+
     public partial class Setup : UserControl
     {
         public event EventHandler play;
-
+        
+        public Difficulty difficulty = Difficulty.Simple;
         public Setup()
         {
             InitializeComponent();
@@ -36,6 +39,16 @@ namespace Battleship
             {
                 play(this,e);
             }
+        }
+
+        private void rbtnSimple_Click(object sender, RoutedEventArgs e)
+        {
+            difficulty = Difficulty.Simple;
+        }
+
+        private void rbtnIntelligent_Click(object sender, RoutedEventArgs e)
+        {
+            difficulty = Difficulty.Intelligent;
         }
     }
 }
