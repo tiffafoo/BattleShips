@@ -61,7 +61,7 @@ namespace Battleship
 
             //Resize window
             this.MinWidth = 460;
-            this.MinHeight = 520;
+            this.MinHeight = 530;
 
             //Initialize ship placement phase
             shipPlacement = new ShipPlacement();

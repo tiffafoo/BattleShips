@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:Battleship"
              mc:Ignorable="d" Width="661.101" Height="441.436">
     <Grid>
-        <Grid HorizontalAlignment="Left" Width="300" Height="300" VerticalAlignment="Top" Margin="334,46,0,0" Name="CompGrid" ShowGridLines="True">
+        <Grid HorizontalAlignment="Left" Width="300" Height="300" 
+              VerticalAlignment="Top" Margin="334,46,0,0" Name="CompGrid" ShowGridLines="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -244,7 +245,7 @@
         <Label x:Name="lblVerticalI_Copy" Content="I" Margin="635,290,-14.2,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
         <Label x:Name="lblVerticalJ_Copy" Content="J" Margin="635,322,-14.2,0" VerticalAlignment="Top" Height="27" FontFamily="Stencil" FontSize="14.667" RenderTransformOrigin="8.609,0.198"/>
         <Label x:Name="lblHorizontal" Content="  1     2     3      4      5      6      7      8      9    10"
-        	HorizontalAlignment="Left" Margin="336,26,0,304" Width="296" FontFamily="Stencil" FontSize="14.667"/>
+        	HorizontalAlignment="Left" Margin="336,26,0,390.6" Width="296" FontFamily="Stencil" FontSize="14.667"/>
         <Grid HorizontalAlignment="Left" Width="300" Height="300" VerticalAlignment="Top" Margin="15,45,0,0" x:Name="PlayerGrid" ShowGridLines="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -271,105 +272,105 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid x:Name="gridA1" Grid.Row="0" Grid.Column="0 "   Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA2" Grid.Row="0" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA3" Grid.Row="0" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA4" Grid.Row="0" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA5" Grid.Row="0" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA6" Grid.Row="0" Grid.Column="5" MouseDown="gridMouseDown"  Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA7" Grid.Row="0" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA8" Grid.Row="0" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA9" Grid.Row="0" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridA10" Grid.Row="0" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB1" Grid.Row="1" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB2" Grid.Row="1" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB3" Grid.Row="1" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB4" Grid.Row="1" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB5" Grid.Row="1" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB6" Grid.Row="1" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB7" Grid.Row="1" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB8" Grid.Row="1" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB9" Grid.Row="1" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridB10" Grid.Row="1" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC1" Grid.Row="2" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC2" Grid.Row="2" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC3" Grid.Row="2" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC4" Grid.Row="2" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC5" Grid.Row="2" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC6" Grid.Row="2" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC7" Grid.Row="2" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC8" Grid.Row="2" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC9" Grid.Row="2" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridC10" Grid.Row="2" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD1" Grid.Row="3" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD2" Grid.Row="3" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD3" Grid.Row="3" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD4" Grid.Row="3" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD5" Grid.Row="3" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD6" Grid.Row="3" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD7" Grid.Row="3" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD8" Grid.Row="3" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD9" Grid.Row="3" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridD10" Grid.Row="3" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE1" Grid.Row="4" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE2" Grid.Row="4" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE3" Grid.Row="4" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE4" Grid.Row="4" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE5" Grid.Row="4" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE6" Grid.Row="4" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE7" Grid.Row="4" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE8" Grid.Row="4" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE9" Grid.Row="4" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridE10" Grid.Row="4" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF1" Grid.Row="5" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF2" Grid.Row="5" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF3" Grid.Row="5" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF4" Grid.Row="5" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF5" Grid.Row="5" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF6" Grid.Row="5" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF7" Grid.Row="5" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF8" Grid.Row="5" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF9" Grid.Row="5" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridF10" Grid.Row="5" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG1" Grid.Row="6" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG2" Grid.Row="6" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG3" Grid.Row="6" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG4" Grid.Row="6" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG5" Grid.Row="6" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG6" Grid.Row="6" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG7" Grid.Row="6" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG8" Grid.Row="6" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG9" Grid.Row="6" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridG10" Grid.Row="6" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH1" Grid.Row="7" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH2" Grid.Row="7" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH3" Grid.Row="7" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH4" Grid.Row="7" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH5" Grid.Row="7" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH6" Grid.Row="7" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH7" Grid.Row="7" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH8" Grid.Row="7" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH9" Grid.Row="7" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridH10" Grid.Row="7" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI1" Grid.Row="8" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI2" Grid.Row="8" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI3" Grid.Row="8" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI4" Grid.Row="8" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI5" Grid.Row="8" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI6" Grid.Row="8" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI7" Grid.Row="8" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI8" Grid.Row="8" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI9" Grid.Row="8" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridI10" Grid.Row="8" Grid.Column="9" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ1" Grid.Row="9" Grid.Column="0" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ2" Grid.Row="9" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ3" Grid.Row="9" Grid.Column="2" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ4" Grid.Row="9" Grid.Column="3" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ5" Grid.Row="9" Grid.Column="4" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ6" Grid.Row="9" Grid.Column="5" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ7" Grid.Row="9" Grid.Column="6" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ8" Grid.Row="9" Grid.Column="7" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ9" Grid.Row="9" Grid.Column="8" MouseDown="gridMouseDown" Background="#FFF0F0F0"/>
-            <Grid x:Name="gridJ10" Grid.Row="9" Grid.Column="9" MouseDown="gridMouseDown"  Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA2" Grid.Row="0" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA3" Grid.Row="0" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA4" Grid.Row="0" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA5" Grid.Row="0" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA6" Grid.Row="0" Grid.Column="5"  Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA7" Grid.Row="0" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA8" Grid.Row="0" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA9" Grid.Row="0" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridA10" Grid.Row="0" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB1" Grid.Row="1" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB2" Grid.Row="1" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB3" Grid.Row="1" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB4" Grid.Row="1" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB5" Grid.Row="1" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB6" Grid.Row="1" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB7" Grid.Row="1" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB8" Grid.Row="1" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB9" Grid.Row="1" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridB10" Grid.Row="1" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC1" Grid.Row="2" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC2" Grid.Row="2" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC3" Grid.Row="2" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC4" Grid.Row="2" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC5" Grid.Row="2" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC6" Grid.Row="2" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC7" Grid.Row="2" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC8" Grid.Row="2" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC9" Grid.Row="2" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridC10" Grid.Row="2" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD1" Grid.Row="3" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD2" Grid.Row="3" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD3" Grid.Row="3" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD4" Grid.Row="3" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD5" Grid.Row="3" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD6" Grid.Row="3" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD7" Grid.Row="3" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD8" Grid.Row="3" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD9" Grid.Row="3" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridD10" Grid.Row="3" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE1" Grid.Row="4" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE2" Grid.Row="4" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE3" Grid.Row="4" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE4" Grid.Row="4" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE5" Grid.Row="4" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE6" Grid.Row="4" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE7" Grid.Row="4" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE8" Grid.Row="4" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE9" Grid.Row="4" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridE10" Grid.Row="4" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF1" Grid.Row="5" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF2" Grid.Row="5" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF3" Grid.Row="5" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF4" Grid.Row="5" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF5" Grid.Row="5" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF6" Grid.Row="5" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF7" Grid.Row="5" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF8" Grid.Row="5" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF9" Grid.Row="5" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridF10" Grid.Row="5" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG1" Grid.Row="6" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG2" Grid.Row="6" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG3" Grid.Row="6" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG4" Grid.Row="6" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG5" Grid.Row="6" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG6" Grid.Row="6" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG7" Grid.Row="6" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG8" Grid.Row="6" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG9" Grid.Row="6" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridG10" Grid.Row="6" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH1" Grid.Row="7" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH2" Grid.Row="7" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH3" Grid.Row="7" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH4" Grid.Row="7" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH5" Grid.Row="7" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH6" Grid.Row="7" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH7" Grid.Row="7" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH8" Grid.Row="7" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH9" Grid.Row="7" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridH10" Grid.Row="7" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI1" Grid.Row="8" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI2" Grid.Row="8" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI3" Grid.Row="8" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI4" Grid.Row="8" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI5" Grid.Row="8" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI6" Grid.Row="8" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI7" Grid.Row="8" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI8" Grid.Row="8" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI9" Grid.Row="8" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridI10" Grid.Row="8" Grid.Column="9" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ1" Grid.Row="9" Grid.Column="0" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ2" Grid.Row="9" Grid.Column="1" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ3" Grid.Row="9" Grid.Column="2" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ4" Grid.Row="9" Grid.Column="3" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ5" Grid.Row="9" Grid.Column="4" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ6" Grid.Row="9" Grid.Column="5" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ7" Grid.Row="9" Grid.Column="6" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ8" Grid.Row="9" Grid.Column="7" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ9" Grid.Row="9" Grid.Column="8" Background="#FFF0F0F0"/>
+            <Grid x:Name="gridJ10" Grid.Row="9" Grid.Column="9"  Background="#FFF0F0F0"/>
         </Grid>
         <Button x:Name="btnA" Content="A" HorizontalAlignment="Left" Height="30" Margin="132,361,0,0" VerticalAlignment="Top" Width="30"/>
         <Button x:Name="btnB" Content="B" HorizontalAlignment="Left" Height="30" Margin="162,361,0,0" VerticalAlignment="Top" Width="30"/>
@@ -393,6 +394,6 @@
         <Button x:Name="btn10" Content="10" HorizontalAlignment="Left" Height="30" Margin="402,392,0,0" VerticalAlignment="Top" Width="30"/>
         <TextBox x:Name="txtBoxX" HorizontalAlignment="Left" Height="30" Margin="451,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30"/>
         <TextBox x:Name="txtBoxY" HorizontalAlignment="Left" Height="30" Margin="489,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30"/>
-        <Button x:Name="btnAttack" Content="Attack" HorizontalAlignment="Left" Height="30" Margin="450,401,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="btnAttack" Content="Attack" HorizontalAlignment="Left" Height="30" Margin="450,401,0,0" VerticalAlignment="Top" Width="74" Click="btnAttack_Click"/>
     </Grid>
 </UserControl>

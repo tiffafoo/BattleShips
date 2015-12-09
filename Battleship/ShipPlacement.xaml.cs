@@ -341,5 +341,89 @@ namespace Battleship
         {
             reset();
         }
+
+        private void btnRandomize_Click(object sender, RoutedEventArgs e)
+        {
+            reset();
+            Random random = new Random();
+            int[] shipSizes = new int[] { 2, 3, 3, 4, 5 };
+            string[] ships = new string[] { "destroyer", "cruiser", "submarine", "battleship", "carrier" };
+            int size, index;
+            string ship;
+            Orientation orientation;
+            bool unavailableIndex = true;
+
+            for (int i = 0; i < shipSizes.Length; i++)
+            {
+                //Set size and ship type
+                size = shipSizes[i];
+                ship = ships[i];
+                unavailableIndex = true;
+
+                if (random.Next(0, 2) == 0)
+                    orientation = Orientation.HORIZONTAL;
+                else
+                    orientation = Orientation.VERTICAL;
+
+                //Set ships
+                if (orientation.Equals(Orientation.HORIZONTAL))
+                {
+                    index = random.Next(0, 100);
+                    while (unavailableIndex == true)
+                    {
+                        unavailableIndex = false;
+
+                        while ((index + size - 1) % 10 < size - 1)
+                        {
+                            index = random.Next(0, 100);
+                        }
+
+                        for (int j = 0; j < size; j++)
+                        {
+                            if (index + j > 99 || !playerGrid[index + j].Tag.Equals("water"))
+                            {
+                                index = random.Next(0, 100);
+                                unavailableIndex = true;
+                                break;
+                            }
+                        }
+                    }
+                    for (int j = 0; j < size; j++)
+                    {
+                        playerGrid[index + j].Tag = ship;
+                        playerGrid[index + j].Background = selected;
+                    }
+                }
+                else
+                {
+                    index = random.Next(0, 100);
+                    while (unavailableIndex == true)
+                    {
+                        unavailableIndex = false;
+
+                        while (index / 10 + size * 10 > 100)
+                        {
+                            index = random.Next(0, 100);
+                        }
+
+                        for (int j = 0; j < size * 10; j += 10)
+                        {
+                            if (index + j > 99 || !playerGrid[index + j].Tag.Equals("water"))
+                            {
+                                index = random.Next(0, 100);
+                                unavailableIndex = true;
+                                break;
+                            }
+                        }
+                    }
+                    for (int j = 0; j < size * 10; j += 10)
+                    {
+                        playerGrid[index + j].Tag = ship;
+                        playerGrid[index + j].Background = selected;
+                    }
+                }
+
+            }
+        }
     }
 }

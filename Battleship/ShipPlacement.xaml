@@ -723,6 +723,7 @@
         <Button x:Name="btnSubmit" Grid.ColumnSpan="2" Content="Submit" Grid.Column="8" HorizontalAlignment="Left" Height="32" Margin="1.68,120.6,-28.28,-123" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnSubmit_Click" Background="#FF5284C0" BorderBrush="#FFC1C0E8" FontWeight="Bold" Foreground="White" FontFamily="Stencil" FontSize="14.667"/>
         <Button x:Name="btnReset" Grid.ColumnSpan="4" Content="Reset" Grid.Column="4" HorizontalAlignment="Left" Height="32" Margin="16.84,120.6,0,-123" Grid.Row="9" VerticalAlignment="Top" Width="87" Click="btnReset_Click" RenderTransformOrigin="0.526,0.1" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Stencil" FontSize="14.667"/>
         <Label x:Name="lblShipPlacement" Grid.ColumnSpan="7" Content="Ship Placement" HorizontalAlignment="Left" Height="38" Margin="-44,-51,0,0" VerticalAlignment="Top" Width="230" FontSize="25.333" FontFamily="Stencil" FontWeight="Bold"/>
+        <Button x:Name="btnRandomize" Grid.ColumnSpan="4" Content="Randomize" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="5.08,120.6,0,-123" Grid.Row="9" VerticalAlignment="Top" Width="90" Click="btnRandomize_Click" RenderTransformOrigin="0.526,0.1" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Stencil" FontSize="14.667"/>
     </Grid>
 
 </UserControl>
