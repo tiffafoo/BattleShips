@@ -347,7 +347,7 @@ namespace Battleship
             reset();
             Random random = new Random();
             int[] shipSizes = new int[] { 2, 3, 3, 4, 5 };
-            string[] ships = new string[] { "destroyer", "cruiser", "submarine", "battleship", "carrier" };
+            string[] shipNames = new string[] { "destroyer", "cruiser", "submarine", "battleship", "carrier" };
             int size, index;
             string ship;
             Orientation orientation;
@@ -357,7 +357,7 @@ namespace Battleship
             {
                 //Set size and ship type
                 size = shipSizes[i];
-                ship = ships[i];
+                ship = shipNames[i];
                 unavailableIndex = true;
 
                 if (random.Next(0, 2) == 0)
@@ -421,6 +421,17 @@ namespace Battleship
                         playerGrid[index + j].Tag = ship;
                         playerGrid[index + j].Background = selected;
                     }
+                }
+
+            }
+            numShipsPlaced = 5;
+            foreach (var element in ships)
+            {
+                element.IsEnabled = false;
+                element.Opacity = .5;
+                if (element.Stroke != unselected)
+                {
+                    element.Stroke = unselected;
                 }
 
             }

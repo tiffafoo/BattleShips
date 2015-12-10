@@ -163,10 +163,10 @@ namespace Battleship
             Grid square = (Grid)sender;
 
             //Check if player turn yet
-            /*if (turnCount % 2 != 0)
+            if (turnCount % 2 != 0)
             {
                 return;
-            }*/
+            }
 
             switch (square.Tag.ToString())
             {
@@ -195,10 +195,25 @@ namespace Battleship
             }
             square.Tag = "hit";
             square.Background = new SolidColorBrush(Colors.Red);
+            turnCount++;
+            compTurn();
             checkWinner();
 
         }
 
+        private void compTurn()
+        {
+            Random random = new Random();
+            if (difficulty == Difficulty.Simple)
+            {
+                
+            }
+            else
+            {
+
+            }
+            turnCount++;
+        }
         private void checkWinner()
         {
             if (cCarrierCount == 0)
@@ -226,8 +241,8 @@ namespace Battleship
                 cSubmarineCount = -1;
                 MessageBox.Show("You sunk my Submarine!");
             }
-            if (cCarrierCount == 0 && cBattleshipCount == 0 && cSubmarineCount == 0 && 
-                cCruiserCount == 0 && cDestroyerCount == 0)
+            if (cCarrierCount == -1 && cBattleshipCount == -1 && cSubmarineCount == -1 && 
+                cCruiserCount == -1 && cDestroyerCount == -1)
             {
                 MessageBox.Show("You winnnnnnnn");
             }
