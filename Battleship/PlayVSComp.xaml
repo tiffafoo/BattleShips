@@ -32,7 +32,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid x:Name="A1" Grid.Row="0" Grid.Column="0 "   Background="#FFF0F0F0">
+            <Grid x:Name="A1" Grid.Row="0" Grid.Column="0 " MouseDown="gridMouseDown"  Background="#FFF0F0F0">
             </Grid>
             <Grid x:Name="A2" Grid.Row="0" Grid.Column="1" MouseDown="gridMouseDown" Background="#FFF0F0F0">
             </Grid>
@@ -395,5 +395,6 @@
         <TextBox x:Name="txtBoxX" HorizontalAlignment="Left" Height="30" Margin="451,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30"/>
         <TextBox x:Name="txtBoxY" HorizontalAlignment="Left" Height="30" Margin="489,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30"/>
         <Button x:Name="btnAttack" Content="Attack" HorizontalAlignment="Left" Height="30" Margin="450,401,0,0" VerticalAlignment="Top" Width="74" Click="btnAttack_Click"/>
+        <Button x:Name="btnStartOver" Content="Start Over" HorizontalAlignment="Left" Height="30" Margin="533,383,0,0" VerticalAlignment="Top" Width="74" Click="btnStartOver_Click"/>
     </Grid>
 </UserControl>

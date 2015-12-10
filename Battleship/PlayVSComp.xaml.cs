@@ -24,7 +24,9 @@ namespace Battleship
         public Grid[] playerGrid;
         private int[] shipIndexArray;
         public Grid[] compGrid;
+        public List<int> hitList;
         int turnCount = 0;
+        public Random random = new Random();
 
         int pCarrierCount = 5, cCarrierCount = 5;
         int pBattleshipCount = 4, cBattleshipCount = 4;
@@ -39,6 +41,7 @@ namespace Battleship
             this.difficulty = difficulty;
             initiateSetup(playerGrid);
             this.shipIndexArray = shipIndexArray;
+            hitList = new List<int>();
 
         }
 
@@ -71,13 +74,13 @@ namespace Battleship
         {
             Random random = new Random();
             int[] shipSizes = new int[] { 2, 3, 3, 4, 5 };
-            string[] ships = new string[] { "destroyer","cruiser","submarine","battleship","carrier" };
+            string[] ships = new string[] { "destroyer", "cruiser", "submarine", "battleship", "carrier" };
             int size, index;
             string ship;
             Orientation orientation;
             bool unavailableIndex = true;
 
-            for(int i = 0; i < shipSizes.Length; i++)
+            for (int i = 0; i < shipSizes.Length; i++)
             {
                 //Set size and ship type
                 size = shipSizes[i];
@@ -106,7 +109,7 @@ namespace Battleship
                         {
                             if (index + j > 99 || !compGrid[index + j].Tag.Equals("water"))
                             {
-                                index = random.Next(0,100);
+                                index = random.Next(0, 100);
                                 unavailableIndex = true;
                                 break;
                             }
@@ -118,7 +121,7 @@ namespace Battleship
                         compGrid[index + j].Background = new SolidColorBrush(Colors.LightGreen); //remove after testing
                     }
                 }
-               else
+                else
                 {
                     index = random.Next(0, 100);
                     while (unavailableIndex == true)
@@ -173,6 +176,8 @@ namespace Battleship
                 case "water":
                     square.Tag = "miss";
                     square.Background = new SolidColorBrush(Colors.Blue);
+                    turnCount++;
+                    compTurn();
                     return;
                 case "miss":
                 case "hit":
@@ -196,25 +201,25 @@ namespace Battleship
             square.Tag = "hit";
             square.Background = new SolidColorBrush(Colors.Red);
             turnCount++;
+            checkPlayerWin();
             compTurn();
-            checkWinner();
 
         }
 
         private void compTurn()
         {
-            Random random = new Random();
             if (difficulty == Difficulty.Simple)
             {
-                
+                hunterMode();
             }
             else
             {
-
+                intelligentMoves();
             }
             turnCount++;
+            checkComputerWin();
         }
-        private void checkWinner()
+        private void checkPlayerWin()
         {
             if (cCarrierCount == 0)
             {
@@ -241,13 +246,70 @@ namespace Battleship
                 cSubmarineCount = -1;
                 MessageBox.Show("You sunk my Submarine!");
             }
-            if (cCarrierCount == -1 && cBattleshipCount == -1 && cSubmarineCount == -1 && 
+
+            if (cCarrierCount == -1 && cBattleshipCount == -1 && cSubmarineCount == -1 &&
                 cCruiserCount == -1 && cDestroyerCount == -1)
             {
-                MessageBox.Show("You winnnnnnnn");
+                MessageBox.Show("You win!");
+                disableGrids();
+            }
+
+        }
+        private void checkComputerWin()
+        {
+            if (pCarrierCount == 0)
+            {
+                pCarrierCount = -1;
+                MessageBox.Show("Your Aircraft Carrier got destroyed!");
+            }
+            if (pCruiserCount == 0)
+            {
+                pCruiserCount = -1;
+                MessageBox.Show("Your Cruiser got destroyed!");
+            }
+            if (pDestroyerCount == 0)
+            {
+                pDestroyerCount = -1;
+                MessageBox.Show("Your Destroyer got destroyed!");
+            }
+            if (pBattleshipCount == 0)
+            {
+                pBattleshipCount = -1;
+                MessageBox.Show("Your Battleship got destroyed!");
+            }
+            if (pSubmarineCount == 0)
+            {
+                pSubmarineCount = -1;
+                MessageBox.Show("Your Submarine got destroyed!");
+            }
+
+            if (pCarrierCount == -1 && pBattleshipCount == -1 && pSubmarineCount == -1 &&
+                pCruiserCount == -1 && pDestroyerCount == -1)
+            {
+                MessageBox.Show("You lose!");
+                disableGrids();
             }
         }
-
+        private void disableGrids()
+        {
+            foreach (var element in compGrid)
+            {
+                if (element.Tag.Equals("water"))
+                {
+                    element.Background = new SolidColorBrush(Colors.Blue);
+                }
+                else if (element.Tag.Equals("carrier") || element.Tag.Equals("cruiser") ||
+                  element.Tag.Equals("destroyer") || element.Tag.Equals("battleship") || element.Tag.Equals("submarine"))
+                {
+                    element.Background = new SolidColorBrush(Colors.Red);
+                }
+                element.IsEnabled = false;
+            }
+            foreach (var element in playerGrid)
+            {
+                element.IsEnabled = false;
+            }
+        }
         /// <summary>
         /// Validates X coordinate.
         /// </summary>
@@ -301,5 +363,214 @@ namespace Battleship
             //TODO 
         }
 
+        private void btnStartOver_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Computer AI moves based on if it is in "Hunter" mode
+        /// (has not found a ship) or "Killer" mode (is attempting
+        /// to destroy a ship).
+        /// </summary>
+        private void intelligentMoves()
+        {
+            // If there are no squares to hit
+            if (hitList.Count == 0)
+            {
+                Console.WriteLine("hitlist is empty");
+                hunterMode();
+            }
+            // assumes there is a ship found
+            else
+                killerMode();
+        }
+
+        /// <summary>
+        /// Hunter Mode fires randoming, attempting to find a ship
+        /// </summary>
+        private void hunterMode()
+        {
+            int position;
+            do
+            {
+                position = random.Next(100);
+                Console.WriteLine(playerGrid[position].Tag);
+                Console.WriteLine("Randomizing position");
+            } while ((playerGrid[position].Tag.Equals("miss")) || (playerGrid[position].Tag.Equals("hit")));
+
+
+            if (difficulty == Difficulty.Simple)
+            {
+                Console.WriteLine("Going simple");
+                simpleMode(position);
+            }
+            else
+            {
+                fireAtLocation(position);
+            }
+
+        }
+
+        /// <summary>
+        /// Simple Difficulty fires randomly with no other algorithm
+        /// </summary>
+        /// <param name="position"></param>
+        private void simpleMode(int position)
+        {
+            if (!(playerGrid[position].Tag.Equals("water")))
+            {
+                // If ship is hit mark it down
+                switch (playerGrid[position].Tag.ToString())
+                {
+                    case "destroyer":
+                        pDestroyerCount--;
+                        break;
+                    case "cruiser":
+                        pCruiserCount--;
+                        break;
+                    case "submarine":
+                        pSubmarineCount--;
+                        break;
+                    case "battleship":
+                        pBattleshipCount--;
+                        break;
+                    case "carrier":
+                        pCarrierCount--;
+                        break;
+                }
+                // Mark the grid as hit
+                playerGrid[position].Tag = "hit";
+                playerGrid[position].Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                playerGrid[position].Tag = "miss";
+                playerGrid[position].Background = new SolidColorBrush(Colors.Blue);
+            }
+        }
+
+        /// <summary>
+        /// Determines if the shot is a hit or miss. In the event
+        /// of a hit the ship is checked if it's destroyed or not
+        /// and if so checks for a winner before going back to hunter
+        /// mode. In the event of a miss the grid is changed to
+        /// reflect that
+        /// </summary>
+        /// <param name="position"></param>
+        private void fireAtLocation(int position)
+        {
+            //If the position contains one of the ships (therefore, not water, missed shot, or already hit ship)
+            if (!(playerGrid[position].Tag.Equals("water")))
+            {
+                // If this grid is in the hitList, remove it
+                if (hitList != null && hitList.Contains(position))
+                    hitList.Remove(position);
+
+                // If ship is hit mark it down
+                switch (playerGrid[position].Tag.ToString())
+                {
+                    case "destroyer":
+                        pDestroyerCount--;
+                        break;
+                    case "cruiser":
+                        pCruiserCount--;
+                        break;
+                    case "submarine":
+                        pSubmarineCount--;
+                        break;
+                    case "battleship":
+                        pBattleshipCount--;
+                        break;
+                    case "carrier":
+                        pCarrierCount--;
+                        break;
+                }
+                // Mark the grid as hit
+                playerGrid[position].Tag = "hit";
+                playerGrid[position].Background = new SolidColorBrush(Colors.Red);
+
+                // If a ship is destroyed clear the hitList to return to Hunter Mode
+                if (pDestroyerCount == 0 || pCruiserCount == 0 || pSubmarineCount == 0 || pBattleshipCount == 0 || pCarrierCount == 0)
+                {
+                    hitList.Clear();
+                }
+                // If a ship is not destroyed add adjacent grids to hitList
+                else
+                {
+                    // Computer hit a ship, add the adjacent grids to hitList
+                    // If the position is on the left side
+                    if (position % 10 == 0)
+                        hitList.Add(position + 1);
+                    // If the position is on the  right side
+                    else if (position % 10 == 9)
+                        hitList.Add(position - 1);
+                    // Is the position is not on the left or right
+                    else
+                    {
+                        hitList.Add(position + 1);
+                        hitList.Add(position - 1);
+                    }
+                    // If the position is on the top
+                    if (position < 10)
+                        hitList.Add(position + 10);
+                    // If the position is on the bottom
+                    else if (position > 89)
+                        hitList.Add(position - 10);
+                    // If the position is not on the top or bottom
+                    else
+                    {
+                        hitList.Add(position + 10);
+                        hitList.Add(position - 10);
+                    }
+
+                    // The following code should improve the AI's options by removing squares that are likely to be misses
+                    try
+                    {
+                        hitList.Remove(position - 11);
+                    }
+                    catch (Exception e) { }
+                    try
+                    {
+                        hitList.Remove(position - 9);
+                    }
+                    catch (Exception e) { }
+                    try
+                    {
+                        hitList.Remove(position + 9);
+                    }
+                    catch (Exception e) { }
+                    try
+                    {
+                        hitList.Remove(position + 11);
+                    }
+                    catch (Exception e) { }
+                }
+            }
+            else
+            {
+                playerGrid[position].Tag = "miss";
+                playerGrid[position].Background = new SolidColorBrush(Colors.Blue);
+            }
+        }
+        /// <summary>
+        /// Fire on one of the grid squares from the hitList
+        /// </summary>
+        private void killerMode()
+        {
+            int position;
+            // Prepare to fight at a random grid of the hitList
+            do
+            {
+                Console.WriteLine("killerMode loop");
+                position = random.Next(hitList.Count);
+            } while (playerGrid[hitList[position]].Tag.Equals("miss") || playerGrid[hitList[position]].Tag.Equals("hit"));
+
+            //Find the index for the grid in the Grid Array and fire
+            Console.WriteLine("HitList count: " + hitList.Count);
+            Console.WriteLine(hitList);
+            fireAtLocation(hitList[position]);
+
+        }
     }
 }
