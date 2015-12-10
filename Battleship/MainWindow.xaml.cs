@@ -39,11 +39,13 @@ namespace Battleship
             //Initialize window
             Content = grid;
 
+            this.MinHeight = 300;
+            this.MinWidth = 330;
+            this.Height = 300;
+            this.Width = 330;
             //Initiate setup
             setup = new Setup();
             grid.Children.Add(setup);
-            
-            
 
             //Add event handler
             setup.play += new EventHandler(shipSetup);
@@ -62,6 +64,8 @@ namespace Battleship
             //Resize window
             this.MinWidth = 460;
             this.MinHeight = 530;
+            this.Width = 460;
+            this.Height = 530;
 
             //Initialize ship placement phase
             shipPlacement = new ShipPlacement();
@@ -84,14 +88,23 @@ namespace Battleship
 
             //Resize window
             this.MinWidth = 800;
-            this.MinHeight = 470;
+            this.MinHeight = 480;
+            this.Width = 800;
+            this.Height = 480;
 
             //Initialize game
             playVSComp = new PlayVSComp(setup.difficulty, shipPlacement.playerGrid,shipPlacement.shipIndexArray);
 
             //Add grid
             grid.Children.Add(playVSComp);
+            playVSComp.replay += new EventHandler(replayGame);
 
+        }
+        private void replayGame(object sender, EventArgs e)
+        {
+            //Close playVSComp grid
+            grid.Children.Clear();
+            InitializeGame();
         }
     }
 }

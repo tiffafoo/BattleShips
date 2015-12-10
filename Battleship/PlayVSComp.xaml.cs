@@ -20,7 +20,10 @@ namespace Battleship
     /// </summary>
     public partial class PlayVSComp : UserControl
     {
+        public event EventHandler replay;
+
         public Difficulty difficulty;
+        public int highScore;
         public Grid[] playerGrid;
         private int[] shipIndexArray;
         public Grid[] compGrid;
@@ -69,6 +72,7 @@ namespace Battleship
                 playerGrid[i].Background = userGrid[i].Background;
                 playerGrid[i].Tag = userGrid[i].Tag;
             }
+            btnAttack.IsEnabled = true;
         }
         private void setupCompGrid()
         {
@@ -314,8 +318,7 @@ namespace Battleship
                 element.IsEnabled = false;
             }
             clearTextBoxes();
-            txtBoxX.IsEnabled = false;
-            txtBoxY.IsEnabled = false;
+            btnAttack.IsEnabled = false;
             
         }
         private string validateXCoordinate(string X)
@@ -408,7 +411,7 @@ namespace Battleship
         }
         private void btnStartOver_Click(object sender, RoutedEventArgs e)
         {
-
+            replay(this,e);
         }
 
         private void btnLetter_Click(object sender, RoutedEventArgs e)
