@@ -175,7 +175,7 @@ namespace Battleship
             {
                 case "water":
                     square.Tag = "miss";
-                    square.Background = new SolidColorBrush(Colors.Blue);
+                    square.Background = new SolidColorBrush(Colors.LightGray);
                     turnCount++;
                     compTurn();
                     return;
@@ -296,38 +296,40 @@ namespace Battleship
             {
                 if (element.Tag.Equals("water"))
                 {
-                    element.Background = new SolidColorBrush(Colors.Blue);
+                    element.Background = new SolidColorBrush(Colors.LightGray);
                 }
                 else if (element.Tag.Equals("carrier") || element.Tag.Equals("cruiser") ||
                   element.Tag.Equals("destroyer") || element.Tag.Equals("battleship") || element.Tag.Equals("submarine"))
                 {
-                    element.Background = new SolidColorBrush(Colors.Red);
+                    element.Background = new SolidColorBrush(Colors.LightGreen);
                 }
                 element.IsEnabled = false;
             }
             foreach (var element in playerGrid)
             {
+                if (element.Tag.Equals("water"))
+                {
+                    element.Background = new SolidColorBrush(Colors.LightGray);
+                }
                 element.IsEnabled = false;
             }
+            clearTextBoxes();
+            txtBoxX.IsEnabled = false;
+            txtBoxY.IsEnabled = false;
+            
         }
-        /// <summary>
-        /// Validates X coordinate.
-        /// </summary>
-        /// <param name="X">X coordinate</param>
-        /// <returns>char X coordinate if good. Otherwise char '-'</returns>
-        private char validateXCoordinate(string X)
+        private string validateXCoordinate(string X)
         {
             if (X.Length != 1)
             {
-                return '-';
+                return "";
             }
 
-            char XCoord = X[0];
-            if (Char.IsLetter(XCoord))
+            if (Char.IsLetter(X[0]))
             {
-                return XCoord;
+                return X;
             }
-            return '-';
+            return "";
         }
 
         /// <summary>
@@ -335,37 +337,90 @@ namespace Battleship
         /// </summary>
         /// <param name="Y">Y coordinate</param>
         /// <returns>char Y coordinate if good. Otherwise char '-'</returns>
-        private char validateYCoordinate(string Y)
+        private string validateYCoordinate(string Y)
         {
             if (Y.Length != 1)
             {
-                return '-';
+                return "";
             }
 
-            char YCoord = Y[0];
-            if (Char.IsDigit(YCoord))
+            if (Char.IsDigit(Y[0]))
             {
-                return YCoord;
+                return Y;
             }
-            return '-';
+            return "";
         }
 
         private void btnAttack_Click(object sender, RoutedEventArgs e)
         {
-            char X = validateXCoordinate(txtBoxX.Text);
-            char Y = validateYCoordinate(txtBoxY.Text);
+            string X = validateXCoordinate(txtBoxX.Text);
+            string Y = validateYCoordinate(txtBoxY.Text);
+            int index = 0;
 
-            if (X == '-' || Y == '-')
+            if (X == "" || Y == "")
             {
                 MessageBox.Show("Invalid value", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            //TODO 
+            switch (X)
+            {
+                case "A":
+                    index = 0;
+                    break;
+                case "B":
+                    index = 10;
+                    break;
+                case "C":
+                    index = 20;
+                    break;
+                case "D":
+                    index = 30;
+                    break;
+                case "E":
+                    index = 40;
+                    break;
+                case "F":
+                    index = 50;
+                    break;
+                case "G":
+                    index = 60;
+                    break;
+                case "H":
+                    index = 70;
+                    break;
+                case "I":
+                    index = 80;
+                    break;
+                case "J":
+                    index = 90;
+                    break;
+            }
+            index += int.Parse(Y) - 1;
+            clearTextBoxes();
+            gridMouseDown(compGrid[index], null);
+
         }
 
+        private void clearTextBoxes()
+        {
+            txtBoxX.Text = "";
+            txtBoxY.Text = "";
+        }
         private void btnStartOver_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnLetter_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            txtBoxX.Text = button.Content.ToString();
+        }
+
+        private void btnNumber_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            txtBoxY.Text = button.Content.ToString();
         }
 
         /// <summary>
@@ -446,7 +501,7 @@ namespace Battleship
             else
             {
                 playerGrid[position].Tag = "miss";
-                playerGrid[position].Background = new SolidColorBrush(Colors.Blue);
+                playerGrid[position].Background = new SolidColorBrush(Colors.LightGray);
             }
         }
 
@@ -550,7 +605,7 @@ namespace Battleship
             else
             {
                 playerGrid[position].Tag = "miss";
-                playerGrid[position].Background = new SolidColorBrush(Colors.Blue);
+                playerGrid[position].Background = new SolidColorBrush(Colors.LightGray);
             }
         }
         /// <summary>

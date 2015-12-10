@@ -352,6 +352,9 @@ namespace Battleship
             string ship;
             Orientation orientation;
             bool unavailableIndex = true;
+            SolidColorBrush[] shipColors = new SolidColorBrush[] {(SolidColorBrush)(new BrushConverter().ConvertFrom("#88cc00")), (SolidColorBrush)(new BrushConverter().ConvertFrom("#33cc33")),
+                                                                  (SolidColorBrush)(new BrushConverter().ConvertFrom("#00e64d")),(SolidColorBrush)(new BrushConverter().ConvertFrom("#00cc00")),
+                                                                  (SolidColorBrush)(new BrushConverter().ConvertFrom("#00e600"))}; 
 
             for (int i = 0; i < shipSizes.Length; i++)
             {
@@ -391,7 +394,7 @@ namespace Battleship
                     for (int j = 0; j < size; j++)
                     {
                         playerGrid[index + j].Tag = ship;
-                        playerGrid[index + j].Background = selected;
+                        playerGrid[index + j].Background = shipColors[i];
                     }
                 }
                 else
@@ -419,7 +422,7 @@ namespace Battleship
                     for (int j = 0; j < size * 10; j += 10)
                     {
                         playerGrid[index + j].Tag = ship;
-                        playerGrid[index + j].Background = selected;
+                        playerGrid[index + j].Background = shipColors[i];
                     }
                 }
 
