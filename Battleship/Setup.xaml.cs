@@ -21,8 +21,9 @@ namespace Battleship
     public partial class Setup : UserControl
     {
         public event EventHandler play;
-        
+        public string name;
         public Difficulty difficulty = Difficulty.Simple;
+
         public Setup()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Battleship
 
         private void buttonStart_Click(object sender, RoutedEventArgs e)
         {
-            string name = txtboxName.Text;
+            name = txtboxName.Text;
             if (name == "")
             {
                 MessageBox.Show("You must enter a name", "Error", MessageBoxButton.OK,MessageBoxImage.Error);

@@ -12,6 +12,6 @@
         <RadioButton x:Name="rbtnIntelligent" Content="Intelligent" GroupName="difficulty" Margin="103,145,113,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="107" Click="rbtnIntelligent_Click" FontFamily="Stencil" FontSize="13.667"/>
         <Label x:Name="lblWelcome" Content="Welcome to BattleShips" HorizontalAlignment="Center" Margin="50,13,39,0" VerticalAlignment="Top" FontFamily="Stencil" FontSize="16.667" Width="234" Foreground="#FF5284C0"/>
         <Label x:Name="lblName" Content="What is your name:" HorizontalAlignment="Center" Margin="75,39,85,0" VerticalAlignment="Top" FontFamily="Stencil" FontSize="14.667" Width="163"/>
-        <TextBox x:Name="txtboxName" HorizontalAlignment="Center" Height="23" Margin="91,69,110,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontFamily="Stencil" FontSize="14.667" Foreground="RosyBrown" Background="AntiqueWhite"/>
+        <TextBox x:Name="txtboxName" HorizontalAlignment="Center" Height="23" Margin="91,69,110,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" FontFamily="Stencil" FontSize="14.667" Foreground="Brown" Background="White"/>
     </Grid>
 </UserControl>

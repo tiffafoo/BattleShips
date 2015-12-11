@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +28,12 @@ namespace Battleship
         private Setup setup;
         private ShipPlacement shipPlacement;
         private PlayVSComp playVSComp;
-
+        private MediaPlayer mediaPlayer = new MediaPlayer();
 
         public MainWindow()
         {
             InitializeComponent();
+            playMusic();
             InitializeGame();
         }
       
@@ -43,6 +46,7 @@ namespace Battleship
             this.MinWidth = 330;
             this.Height = 300;
             this.Width = 330;
+
             //Initiate setup
             setup = new Setup();
             grid.Children.Add(setup);
@@ -93,7 +97,7 @@ namespace Battleship
             this.Height = 480;
 
             //Initialize game
-            playVSComp = new PlayVSComp(setup.difficulty, shipPlacement.playerGrid,shipPlacement.shipIndexArray);
+            playVSComp = new PlayVSComp(setup.difficulty, shipPlacement.playerGrid);
 
             //Add grid
             grid.Children.Add(playVSComp);
@@ -105,6 +109,18 @@ namespace Battleship
             //Close playVSComp grid
             grid.Children.Clear();
             InitializeGame();
+        }
+        private void playMusic()
+        {
+            mediaPlayer.Open(new Uri(Directory.GetCurrentDirectory() + "\\Sounds\\music.mp3"));
+            mediaPlayer.Volume = 0.02;
+            mediaPlayer.Play();
+            mediaPlayer.MediaEnded += new EventHandler(Media_Ended);
+        }
+        private void Media_Ended(object sender, EventArgs e)
+        {
+            mediaPlayer.Position = TimeSpan.Zero;
+            mediaPlayer.Play();
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Battleship
         public Difficulty difficulty;
         public int highScore;
         public Grid[] playerGrid;
-        private int[] shipIndexArray;
         public Grid[] compGrid;
         public List<int> hitList;
         int turnCount = 0;
@@ -37,13 +36,12 @@ namespace Battleship
         int pCruiserCount = 3, cCruiserCount = 3;
         int pDestroyerCount = 2, cDestroyerCount = 2;
 
-        public PlayVSComp(Difficulty difficulty, Grid[] playerGrid, int[] shipIndexArray)
+        public PlayVSComp(Difficulty difficulty, Grid[] playerGrid)
         {
             InitializeComponent();
 
             this.difficulty = difficulty;
             initiateSetup(playerGrid);
-            this.shipIndexArray = shipIndexArray;
             hitList = new List<int>();
 
         }
@@ -122,7 +120,7 @@ namespace Battleship
                     for (int j = 0; j < size; j++)
                     {
                         compGrid[index + j].Tag = ship;
-                        compGrid[index + j].Background = new SolidColorBrush(Colors.LightGreen); //remove after testing
+                        //compGrid[index + j].Background = new SolidColorBrush(Colors.LightGreen); //remove after testing
                     }
                 }
                 else
@@ -150,7 +148,7 @@ namespace Battleship
                     for (int j = 0; j < size * 10; j += 10)
                     {
                         compGrid[index + j].Tag = ship;
-                        compGrid[index + j].Background = new SolidColorBrush(Colors.LightGreen); //remove after testing
+                        //compGrid[index + j].Background = new SolidColorBrush(Colors.LightGreen); //remove after testing
                     }
                 }
 
@@ -342,12 +340,12 @@ namespace Battleship
         /// <returns>char Y coordinate if good. Otherwise char '-'</returns>
         private string validateYCoordinate(string Y)
         {
-            if (Y.Length != 1)
+            if (Y.Length > 2 || Y == "")
             {
                 return "";
             }
 
-            if (Char.IsDigit(Y[0]))
+            if (int.Parse(Y) > 0 || int.Parse(Y) <= 10)
             {
                 return Y;
             }

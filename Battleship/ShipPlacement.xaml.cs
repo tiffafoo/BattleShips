@@ -33,8 +33,11 @@ namespace Battleship
         Path[] ships;
         Polygon lastArrow;
         public Grid[] playerGrid;
-        public int[] shipIndexArray = new int [17];
- 
+
+        SolidColorBrush[] shipColors = new SolidColorBrush[] {(SolidColorBrush)(new BrushConverter().ConvertFrom("#88cc00")), (SolidColorBrush)(new BrushConverter().ConvertFrom("#33cc33")),
+                                                                  (SolidColorBrush)(new BrushConverter().ConvertFrom("#00e64d")),(SolidColorBrush)(new BrushConverter().ConvertFrom("#00cc00")),
+                                                                  (SolidColorBrush)(new BrushConverter().ConvertFrom("#00e600"))};
+
         public ShipPlacement()
         {
             InitializeComponent();
@@ -50,6 +53,7 @@ namespace Battleship
                                 gridJ1, gridJ2, gridJ3, gridJ4, gridJ5, gridJ6, gridJ7,gridJ8,gridJ9,gridJ10 };
             ships = new Path[] { destroyer, cruiser,submarine,battleship,carrier };
             reset();
+            
         }
 
         /// <summary>
@@ -260,13 +264,13 @@ namespace Battleship
 
                     while ((index + counter) % 10 > 1)
                     {
-                        playerGrid[index + counter].Background = selected;
+                        playerGrid[index + counter].Background = selectColor();
                         playerGrid[index + counter].Tag = ship;
                         counter++;
                     }
                     for (int i = counter; i < size; i++)
                     {
-                        playerGrid[index - temp].Background = selected;
+                        playerGrid[index - temp].Background = selectColor();
                         playerGrid[index - temp].Tag = ship;
                         temp++;
                     }
@@ -276,7 +280,7 @@ namespace Battleship
                 {
                     for (int i = 0; i < size; i++)
                     {
-                        playerGrid[index + i].Background = selected;
+                        playerGrid[index + i].Background = selectColor();
                         playerGrid[index + i].Tag = ship;
                     }
                 }
@@ -290,13 +294,13 @@ namespace Battleship
                     temp = 10;
                     while ((index / 10 + counter ) % 100 < 10)
                     {
-                        playerGrid[index + counter * 10].Background = selected;
+                        playerGrid[index + counter * 10].Background = selectColor();
                         playerGrid[index + counter * 10].Tag = ship;
                         counter++;
                     }
                     for (int i = counter; i < size; i++)
                     {
-                        playerGrid[index - temp].Background = selected;
+                        playerGrid[index - temp].Background = selectColor();
                         playerGrid[index - temp].Tag = ship;
                         temp += 10;
                     }
@@ -307,7 +311,7 @@ namespace Battleship
                     counter = 0;
                     for (int i = 0; i  < size * 10; i += 10)
                     {
-                        playerGrid[index + i].Background = selected;
+                        playerGrid[index + i].Background = selectColor();
                         playerGrid[index + i].Tag = ship;
                     }
                 }
@@ -321,18 +325,9 @@ namespace Battleship
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            int counter = 0;
             if (numShipsPlaced != 5)
             {
                 return;
-            }
-            for (int i = 0; i < playerGrid.Length; i++)
-            {
-                if (!playerGrid[i].Tag.Equals("water"))
-                {
-                    shipIndexArray[counter] = i;
-                    counter++;
-                }
             }
             play(this,e);
         }
@@ -352,9 +347,7 @@ namespace Battleship
             string ship;
             Orientation orientation;
             bool unavailableIndex = true;
-            SolidColorBrush[] shipColors = new SolidColorBrush[] {(SolidColorBrush)(new BrushConverter().ConvertFrom("#88cc00")), (SolidColorBrush)(new BrushConverter().ConvertFrom("#33cc33")),
-                                                                  (SolidColorBrush)(new BrushConverter().ConvertFrom("#00e64d")),(SolidColorBrush)(new BrushConverter().ConvertFrom("#00cc00")),
-                                                                  (SolidColorBrush)(new BrushConverter().ConvertFrom("#00e600"))}; 
+            
 
             for (int i = 0; i < shipSizes.Length; i++)
             {
@@ -439,5 +432,23 @@ namespace Battleship
 
             }
         }
+        private SolidColorBrush selectColor()
+        {
+            switch (ship)
+            {
+                case "destroyer":
+                    return shipColors[0];
+                case "cruiser":
+                    return shipColors[1];
+                case "submarine":
+                    return shipColors[2];
+                case "carrier":
+                    return shipColors[3];
+                case "battleship":
+                    return shipColors[4];
+            }
+            return shipColors[0];
+        }
+       
     }
 }
