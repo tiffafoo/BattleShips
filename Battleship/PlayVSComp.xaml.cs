@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace Battleship
         public event EventHandler replay;
 
         public Difficulty difficulty;
+        public string playerName;
         public int highScore;
         public Grid[] playerGrid;
         public Grid[] compGrid;
@@ -36,13 +38,15 @@ namespace Battleship
         int pCruiserCount = 3, cCruiserCount = 3;
         int pDestroyerCount = 2, cDestroyerCount = 2;
 
-        public PlayVSComp(Difficulty difficulty, Grid[] playerGrid)
+        public PlayVSComp(Difficulty difficulty, Grid[] playerGrid, string playerName)
         {
             InitializeComponent();
 
+            this.playerName = playerName;
             this.difficulty = difficulty;
             initiateSetup(playerGrid);
             hitList = new List<int>();
+            displayHighScores(loadHighScores());
 
         }
 
@@ -72,6 +76,10 @@ namespace Battleship
             }
             btnAttack.IsEnabled = true;
         }
+
+        /// <summary>
+        /// Initiate the computer's grid
+        /// </summary>
         private void setupCompGrid()
         {
             Random random = new Random();
@@ -183,6 +191,7 @@ namespace Battleship
                     return;
                 case "miss":
                 case "hit":
+                    Console.WriteLine("User hit a miss/hit");
                     return;
                 case "destroyer":
                     cDestroyerCount--;
@@ -254,9 +263,12 @@ namespace Battleship
             {
                 MessageBox.Show("You win!");
                 disableGrids();
+                displayHighScores(saveHighScores(true));
             }
-
         }
+
+        
+
         private void checkComputerWin()
         {
             if (pCarrierCount == 0)
@@ -290,6 +302,7 @@ namespace Battleship
             {
                 MessageBox.Show("You lose!");
                 disableGrids();
+                displayHighScores(saveHighScores(false));
             }
         }
         private void disableGrids()
@@ -317,7 +330,7 @@ namespace Battleship
             }
             clearTextBoxes();
             btnAttack.IsEnabled = false;
-            
+
         }
         private string validateXCoordinate(string X)
         {
@@ -409,7 +422,7 @@ namespace Battleship
         }
         private void btnStartOver_Click(object sender, RoutedEventArgs e)
         {
-            replay(this,e);
+            replay(this, e);
         }
 
         private void btnLetter_Click(object sender, RoutedEventArgs e)
@@ -609,6 +622,24 @@ namespace Battleship
                 playerGrid[position].Background = new SolidColorBrush(Colors.LightGray);
             }
         }
+
+        /// <summary>
+        /// Clears the score list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            string path = @"../../scores.txt";
+            File.Delete(path);
+            FileStream stream = File.Create(path);
+            stream.Close();
+
+            txtBlockNames.Text = "NAME";
+            txtBlockWins.Text = "WINS";
+            txtBlockLosses.Text = "LOSSES";
+        }
+
         /// <summary>
         /// Fire on one of the grid squares from the hitList
         /// </summary>
@@ -626,6 +657,148 @@ namespace Battleship
             Console.WriteLine("HitList count: " + hitList.Count);
             Console.WriteLine(hitList);
             fireAtLocation(hitList[position]);
+
+        }
+
+        /// <summary>
+        /// Save high scores
+        /// </summary>
+        /// <param name="playerWins"></param>
+        /// <returns></returns>
+        private List<string> saveHighScores(bool playerWins)
+        {
+            String filename = @"../../scores.txt";
+            string[] user = { playerName, "0", "0" };
+            string[] playerNames;
+            int index;
+            int wins = 0;
+            int losses = 0;
+
+            //Create file if it doesn't exists
+            if (!File.Exists(filename))
+            {
+                FileStream stream = File.Create(filename);
+                stream.Close();
+            }
+
+            //Get list of players
+            List<string> players = new List<string>(File.ReadAllLines(filename));
+
+            playerNames = new string[players.Count];
+
+            for (index = 0; index < players.Count; index++)
+            {
+                playerNames[index] = players[index].Split(' ')[0];
+            }
+            //See if player exists already
+            index = binarySearch(playerNames, playerName);
+
+            if (index > -1)
+            {
+                user = players[index].Split();
+                players.RemoveAt(index);
+            }
+            else
+            {
+                index = -(index + 1);
+            }
+            if (playerWins == true)
+            {
+                wins = int.Parse(user[1]) + 1;
+            }
+            else
+            {
+                losses = int.Parse(user[2]) + 1;
+            }
+            players.Insert(index, playerName + " " + wins + " " + losses);
+
+            File.WriteAllLines(filename, players);
+            return players;
+        }
+        /// <summary>
+        /// Binary search that returns index of where something should be
+        /// </summary>
+        /// <param name="players"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        private int binarySearch(string[] players, string value)
+        {
+
+            int low = 0;
+            int high = players.Length - 1;
+
+            while (high >= low)
+            {
+                int middle = (low + high) / 2;
+
+                if (players[middle].CompareTo(value) == 0)
+                {
+                    return middle;
+                }
+                if (players[middle].CompareTo(value) < 0)
+                {
+                    low = middle + 1;
+                }
+                if (players[middle].CompareTo(value) > 0)
+                {
+                    high = middle - 1;
+                }
+            }
+            return -(low + 1);
+        }
+
+        /// <summary>
+        /// Load the high scores (initiation)
+        /// </summary>
+        /// <returns></returns>
+        private List<string> loadHighScores()
+        {
+            String filename = @"../../scores.txt";
+            string[] playerNames;
+            int index;
+
+            //Create file if it doesn't exists
+            if (!File.Exists(filename))
+            {
+                FileStream stream = File.Create(filename);
+                stream.Close();
+            }
+
+            //Get list of players
+            List<string> players = new List<string>(File.ReadAllLines(filename));
+
+            playerNames = new string[players.Count];
+
+            for (index = 0; index < players.Count; index++)
+            {
+                playerNames[index] = players[index].Split(' ')[0];
+            }
+
+            File.WriteAllLines(filename, players);
+            return players;
+        }
+
+        /// <summary>
+        /// Display the High Scores
+        /// </summary>
+        /// <param name="players"></param>
+        private void displayHighScores(List<string> players)
+        {
+            string[] player;
+            string names = "Name" + Environment.NewLine;
+            string wins = "Wins" + Environment.NewLine;
+            string losses = "Losses" + Environment.NewLine;
+
+            for (int i = 0; i < players.Count; i++)
+            {
+                player = players[i].Split(' ');
+                names += player[0] + Environment.NewLine;
+                wins += player[1] + Environment.NewLine;
+                losses += player[2] + Environment.NewLine;
+            }
+            txtBlockNames.Text = names;
+            txtBlockWins.Text = wins;
+            txtBlockLosses.Text = losses;
 
         }
     }

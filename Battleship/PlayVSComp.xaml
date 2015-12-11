@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Battleship"
-             mc:Ignorable="d" Width="661.101" Height="441.436">
+             mc:Ignorable="d" Width="953.286" Height="441.436">
     <Grid>
         <Grid HorizontalAlignment="Left" Width="300" Height="300" 
               VerticalAlignment="Top" Margin="334,46,0,0" Name="CompGrid" ShowGridLines="True">
@@ -234,16 +234,16 @@
             </Grid>
         </Grid>
         <Label x:Name="lblTitle" Content="Battle" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="269" FontSize="25.333" FontFamily="Stencil" FontWeight="Bold" Margin="0,-1,0,0"/>
-        <Label x:Name="lblVerticalA_Copy" Content="A" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667" Margin="635,53,-14.2,0"/>
-        <Label x:Name="lblVerticalB_Copy" Content="B" Margin="634,82,-13.2,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
-        <Label x:Name="lblVerticalC_Copy" Content="C" Margin="636,114,-15.2,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
-        <Label x:Name="lblVerticalD_Copy" Content="D" Margin="634,142,-13.2,0" VerticalAlignment="Top" Height="27" FontFamily="Stencil" FontSize="14.667"/>
-        <Label x:Name="lblVerticalE_Copy" Content="E" Margin="634,173,-13.2,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
-        <Label x:Name="lblVerticalF_Copy" Content="F" Margin="635,205,-14.2,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
-        <Label x:Name="lblVerticalG_Copy" Content="G" Margin="636,232,-15.2,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
-        <Label x:Name="lblVerticalH_Copy" Content="H" Margin="634,263,-13.2,0" VerticalAlignment="Top" Height="27" FontFamily="Stencil" FontSize="14.667"/>
-        <Label x:Name="lblVerticalI_Copy" Content="I" Margin="635,290,-14.2,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
-        <Label x:Name="lblVerticalJ_Copy" Content="J" Margin="635,322,-14.2,0" VerticalAlignment="Top" Height="27" FontFamily="Stencil" FontSize="14.667" RenderTransformOrigin="8.609,0.198"/>
+        <Label x:Name="lblVerticalA_Copy" Content="A" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667" Margin="635,53,235.4,0"/>
+        <Label x:Name="lblVerticalB_Copy" Content="B" Margin="634,82,248.4,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalC_Copy" Content="C" Margin="634,114,248.4,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalD_Copy" Content="D" Margin="634,142,248.4,0" VerticalAlignment="Top" Height="27" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalE_Copy" Content="E" Margin="634,173,248.4,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalF_Copy" Content="F" Margin="634,205,248.4,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalG_Copy" Content="G" Margin="634,232,248.4,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalH_Copy" Content="H" Margin="634,263,248.4,0" VerticalAlignment="Top" Height="27" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalI_Copy" Content="I" Margin="634,290,248.4,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblVerticalJ_Copy" Content="J" Margin="634,322,248.4,0" VerticalAlignment="Top" Height="27" FontFamily="Stencil" FontSize="14.667" RenderTransformOrigin="8.609,0.198"/>
         <Label x:Name="lblHorizontal" Content="  1     2     3      4      5      6      7      8      9    10"
         	HorizontalAlignment="Left" Margin="336,26,0,390.6" Width="296" FontFamily="Stencil" FontSize="14.667"/>
         <Grid HorizontalAlignment="Left" Width="300" Height="300" VerticalAlignment="Top" Margin="15,45,0,0" x:Name="PlayerGrid" ShowGridLines="True">
@@ -395,6 +395,13 @@
         <TextBox x:Name="txtBoxX" HorizontalAlignment="Left" Height="30" Margin="451,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30" FontSize ="20"/>
         <TextBox x:Name="txtBoxY" HorizontalAlignment="Left" Height="30" Margin="489,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30" FontSize ="20" />
         <Button x:Name="btnAttack" Content="Attack" HorizontalAlignment="Left" Height="30" Margin="450,401,0,0" VerticalAlignment="Top" Width="74" Click="btnAttack_Click" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Stencil" FontSize="14.667"/>
-        <Button x:Name="btnStartOver" Content="Start Over" HorizontalAlignment="Left" Height="30" Margin="533,383,0,0" VerticalAlignment="Top" Width="101" Click="btnStartOver_Click" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Stencil" FontSize="14.667"/>
+        <Button x:Name="btnStartOver" Content="Start Over" HorizontalAlignment="Left" Height="30" Margin="826,295,0,0" VerticalAlignment="Top" Width="101" Click="btnStartOver_Click" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Stencil" FontSize="14.667"/>
+        <TextBlock x:Name="txtBlockNames" HorizontalAlignment="Left" Margin="686,78,0,161.6" Width="130" Text="Name"  Foreground="Black" Background="White" Opacity="0.5" FontFamily="Stencil" FontSize="14.667"/>
+        <TextBlock x:Name="txtBlockWins" HorizontalAlignment="Center" Margin="816,78,83.6,161.6" Width="54" Text="Wins" TextAlignment="Center" Foreground="Black" Background="White" Opacity="0.5" FontFamily="Stencil" FontSize="14.667"/>
+        <TextBlock x:Name="txtBlockLosses" HorizontalAlignment="Center" Margin="870,78,24.6,161.6" Width="59" Text="Losses" TextAlignment="Center"  Foreground="Black" Background="White" Opacity="0.5" FontFamily="Stencil" FontSize="14.667"/>
+        <Label x:Name="lblScores" Content="Scores" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="242" FontSize="22.333" FontFamily="Stencil" FontWeight="Bold" Margin="687,43,0,0" Background="#FFBEE1F0" Opacity="0.8"/>
+        <Label x:Name="lblCopyright" Content="Copyright Milton Bradley" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="269" FontSize="12.333" Margin="103,5,0,0"/>
+        <Button x:Name="btnAttack_Copy" Content="Attack" HorizontalAlignment="Left" Height="30" Margin="450,401,0,0" VerticalAlignment="Top" Width="74" Click="btnAttack_Click" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Stencil" FontSize="14.667"/>
+        <Button x:Name="btnClear" Content="Clear List" HorizontalAlignment="Left" Height="30" Margin="708,295,0,0" VerticalAlignment="Top" Width="101" Click="btnClear_Click" FontWeight="Bold" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Stencil" FontSize="14.667"/>
     </Grid>
 </UserControl>

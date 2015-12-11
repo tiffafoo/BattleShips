@@ -37,6 +37,9 @@ namespace Battleship
             InitializeGame();
         }
       
+        /// <summary>
+        /// Initiate the game
+        /// </summary>
         private void InitializeGame()
         {
             //Initialize window
@@ -91,25 +94,34 @@ namespace Battleship
             grid.Children.Clear();
 
             //Resize window
-            this.MinWidth = 800;
+            this.MinWidth = 953.286;
             this.MinHeight = 480;
-            this.Width = 800;
+            this.Width = 953.286;
             this.Height = 480;
 
             //Initialize game
-            playVSComp = new PlayVSComp(setup.difficulty, shipPlacement.playerGrid);
+            playVSComp = new PlayVSComp(setup.difficulty, shipPlacement.playerGrid, setup.name);
 
             //Add grid
             grid.Children.Add(playVSComp);
             playVSComp.replay += new EventHandler(replayGame);
 
         }
+        /// <summary>
+        /// When player clicks replay, game restarts
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void replayGame(object sender, EventArgs e)
         {
             //Close playVSComp grid
             grid.Children.Clear();
             InitializeGame();
         }
+
+        /// <summary>
+        /// Music is played
+        /// </summary>
         private void playMusic()
         {
             mediaPlayer.Open(new Uri(Directory.GetCurrentDirectory() + "\\Sounds\\music.mp3"));
@@ -117,6 +129,12 @@ namespace Battleship
             mediaPlayer.Play();
             mediaPlayer.MediaEnded += new EventHandler(Media_Ended);
         }
+
+        /// <summary>
+        /// Make the music loop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Media_Ended(object sender, EventArgs e)
         {
             mediaPlayer.Position = TimeSpan.Zero;

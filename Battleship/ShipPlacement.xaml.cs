@@ -323,6 +323,11 @@ namespace Battleship
             numShipsPlaced++;
         }
 
+        /// <summary>
+        /// Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             if (numShipsPlaced != 5)
@@ -332,11 +337,21 @@ namespace Battleship
             play(this,e);
         }
 
+        /// <summary>
+        /// Reset button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             reset();
         }
 
+        /// <summary>
+        /// Sets grid randomnly
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRandomize_Click(object sender, RoutedEventArgs e)
         {
             reset();
@@ -432,6 +447,11 @@ namespace Battleship
 
             }
         }
+
+        /// <summary>
+        /// Choose the background
+        /// </summary>
+        /// <returns></returns>
         private SolidColorBrush selectColor()
         {
             switch (ship)

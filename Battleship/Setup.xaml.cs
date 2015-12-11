@@ -29,6 +29,11 @@ namespace Battleship
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Start the ship placement
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonStart_Click(object sender, RoutedEventArgs e)
         {
             name = txtboxName.Text;
@@ -42,11 +47,21 @@ namespace Battleship
             }
         }
 
+        /// <summary>
+        /// Set difficulty to simple
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbtnSimple_Click(object sender, RoutedEventArgs e)
         {
             difficulty = Difficulty.Simple;
         }
 
+        /// <summary>
+        /// Set difficulty to intelligent
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbtnIntelligent_Click(object sender, RoutedEventArgs e)
         {
             difficulty = Difficulty.Intelligent;
